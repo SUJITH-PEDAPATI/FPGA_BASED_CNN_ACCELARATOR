@@ -1,0 +1,86 @@
+{
+  "quantization": "symmetric_int8_per_tensor",
+  "qmin": -127,
+  "qmax": 127,
+  "parameters": {
+    "0.weight": {
+      "file_base": "conv1_weights_int",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "scale": 0.006273853497242365,
+      "min_float": -0.7967793941497803,
+      "max_float": 0.6958293914794922,
+      "min_int8": -127,
+      "max_int8": 111,
+      "count": 144
+    },
+    "0.bias": {
+      "file_base": "conv1_bias_int",
+      "shape": [
+        16
+      ],
+      "scale": 0.003749847646773331,
+      "min_float": -0.07034315913915634,
+      "max_float": 0.476230651140213,
+      "min_int8": -19,
+      "max_int8": 127,
+      "count": 16
+    },
+    "3.weight": {
+      "file_base": "conv2_weights_int",
+      "shape": [
+        32,
+        16,
+        3,
+        3
+      ],
+      "scale": 0.003860192740057397,
+      "min_float": -0.4215756356716156,
+      "max_float": 0.49024447798728943,
+      "min_int8": -109,
+      "max_int8": 127,
+      "count": 4608
+    },
+    "3.bias": {
+      "file_base": "conv2_bias_int",
+      "shape": [
+        32
+      ],
+      "scale": 0.0010095004021652102,
+      "min_float": -0.11444743722677231,
+      "max_float": 0.1282065510749817,
+      "min_int8": -113,
+      "max_int8": 127,
+      "count": 32
+    },
+    "7.weight": {
+      "file_base": "fc1_weights_int",
+      "shape": [
+        10,
+        800
+      ],
+      "scale": 0.0024757352400952438,
+      "min_float": -0.31441837549209595,
+      "max_float": 0.2307862490415573,
+      "min_int8": -127,
+      "max_int8": 93,
+      "count": 8000
+    },
+    "7.bias": {
+      "file_base": "fc1_bias_int",
+      "shape": [
+        10
+      ],
+      "scale": 0.0004056849934923367,
+      "min_float": -0.03990144282579422,
+      "max_float": 0.051521994173526764,
+      "min_int8": -98,
+      "max_int8": 127,
+      "count": 10
+    }
+  }
+}
