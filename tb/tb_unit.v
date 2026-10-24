@@ -5,7 +5,9 @@
 
 module tb_unit;
     reg clk, rst_n, start;
-    initial clk = 0;
+    // Initialize ALL regs at t=0 so Vivado xsim never sees X on control signals.
+    // (Icarus tolerates uninitialized regs briefly; xsim does not.)
+    initial begin clk = 0; rst_n = 0; start = 0; end
     always #5 clk = ~clk;
 
     // Test quantization directly
@@ -24,7 +26,7 @@ module tb_unit;
     wire signed [7:0]    c1_out_wr_data;
     wire                 c1_out_wr_en;
     wire                 c1_done;
-    reg                  c1_start_r;
+    reg                  c1_start_r = 0;  // t=0 init prevents X in Vivado
 
     conv_layer #(
         .IN_CH(1),.IN_H(28),.IN_W(28),.OUT_CH(16),
@@ -46,6 +48,11 @@ module tb_unit;
     integer i, timeout;
 
     initial begin
+        // -------------------------------------------------------
+        // NOTE: rst_n, start, c1_start_r are initialized at t=0
+        // by separate initial blocks above.  This block runs the
+        // actual stimulus sequence.
+        // -------------------------------------------------------
         $dumpfile("unit_waves.vcd");
         $dumpvars(0, tb_unit);
 
@@ -60,7 +67,7 @@ module tb_unit;
         acc_test = 0;
         #1; $display("  quant(0) = %0d  (expect 0)", q_test);
 
-        // Reset
+        // Reset (rst_n already 0 from t=0 init; c1_start_r already 0)
         rst_n = 0; c1_start_r = 0;
         repeat(4) @(posedge clk); rst_n = 1; repeat(2) @(posedge clk);
 

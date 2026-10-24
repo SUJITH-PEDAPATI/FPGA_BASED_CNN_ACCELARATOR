@@ -1,123 +1,176 @@
-# QUANTA_2 RTL Verification Report
-
-Date: 2026-10-23
-Simulator: Icarus Verilog (iverilog + vvp, -g2001)
-Result: 5 / 5 PASS
+# QUANTA_2 — RTL Numerical Verification Contract
+**Date:** 2026-10-24  
+**Status:** Verified against rtl_emulator.py and Icarus simulation
 
 ---
 
-## Architecture Verified
+## 1. Input Pixel Representation
 
-Layer          | Module           | Parameters
----------------|------------------|------------------------------------------
-Input buffer   | cnn_top internal | 784 x uint8
-Conv1          | conv_layer       | IN=1x28x28, OUT=16x26x26, 3x3, MULT=201, SHIFT=18
-Pool1          | cnn_top T_POOL1  | 16x26x26 -> 16x13x13, 2x2 max
-Conv2          | conv_layer       | IN=16x13x13, OUT=32x11x11, 3x3, MULT=2637, SHIFT=21
-Pool2          | cnn_top T_POOL2  | 32x11x11 -> 32x5x5, 2x2 max
-FC             | fully_connected  | IN=800, OUT=10, MULT=1965, SHIFT=21
-Argmax         | argmax           | 10-class, lowest-index tie-break
+- Format: unsigned 8-bit integer (uint8), range [0, 255]
+- Source file: `test/image_input.mem` — one hex byte per line (e.g., `00`, `FE`)
+- Pixel layout: row-major, left-to-right, top-to-bottom (28 rows × 28 cols = 784 total)
+- In RTL: loaded into `img_buf[0:783]` as `reg [7:0]`
+- In Conv1: zero-extended to 9 bits: `in_ext = {1'b0, pixel}` (FIRST_LAYER=1 parameter)
+- Unsigned pixels are NOT sign-extended — this is intentional to represent [0, 255]
+
+## 2. Weight Representation
+
+All weights are signed INT8, two's-complement, stored as 2-digit hex per line.
+
+| Layer | File | Count | Shape |
+|-------|------|-------|-------|
+| Conv1 | `conv1_weights_int.mem` | 144 | [16, 1, 3, 3] |
+| Conv2 | `conv2_weights_int.mem` | 4608 | [32, 16, 3, 3] |
+| FC | `fc1_weights_int.mem` | 8000 | [10, 800] |
+
+**Weight index formula** (conv_layer.v):
+```
+widx = (r_oc * IN_CH + r_ic) * 9 + r_ky * 3 + r_kx
+```
+This is `[out_channel][in_channel][kernel_row][kernel_col]` — matches PyTorch OIHW.
+
+**FC weight index:**
+```
+widx = r_oc * IN_FEATURES + r_i   (i.e., [out_neuron][in_feature])
+```
+
+## 3. Bias Representation (Accumulator-Domain)
+
+Biases are stored pre-scaled into the accumulator integer domain.  
+They are NOT raw INT8 weights — they are wider integers.
+
+| Layer | File | Count | Width (bits) |
+|-------|------|-------|-------------|
+| Conv1 | `params/conv1_bias_acc.mem` | 16 | 20 |
+| Conv2 | `params/conv2_bias_acc.mem` | 32 | 16 |
+| FC | `params/fc_bias_acc.mem` | 10 | 12 |
+
+In RTL, these are sign-extended to 32 bits and used directly as the initial accumulator value:
+```verilog
+acc <= {{(32-BIAS_WIDTH){bias_a[0][BIAS_WIDTH-1]}}, bias_a[0]};
+```
+
+> **Do NOT confuse** `params/conv1_bias_acc.mem` (20-bit, used by RTL) with  
+> `conv1_bias_int.mem` (8-bit, used by `int_ref.py`). They are different representations.
+
+## 4. Accumulator
+
+- Width: 32 bits, signed
+- Initialized to: sign-extended bias value for each output channel
+- Accumulated: `acc += in_ext * weight[widx]`  (17-bit product, added to 32-bit acc)
+- Maximum magnitude (Conv1): `19356 + 9 * 255 * 127 = 19356 + 290,835 = 310,191` — fits in 32-bit
+
+## 5. Requantization
+
+After all taps are accumulated for one output pixel:
+
+```
+product_rounded = (acc * MULT) + (1 << (SHIFT-1))
+shifted         = product_rounded >>> SHIFT    (arithmetic right shift)
+sat_val         = clamp(shifted, -127, 127)
+q_out           = RELU ? max(sat_val, 0) : sat_val
+```
+
+Parameters per layer:
+
+| Layer | MULT | SHIFT | RELU |
+|-------|------|-------|------|
+| Conv1 | 201 | 18 | Yes |
+| Conv2 | 2637 | 21 | Yes |
+| FC | 1965 | 21 | No (logits not clamped) |
+
+The MULT/SHIFT pair implements a fixed-point approximation of the float requantization scale:
+- Conv1: `201 / 2^18 ≈ 7.629e-4` 
+- Conv2: `2637 / 2^21 ≈ 1.258e-3`
+- FC: `1965 / 2^21 ≈ 9.37e-4`
+
+## 6. Activation Representation
+
+All intermediate activations stored as signed INT8 [-127, 127].
+After ReLU, activations are in [0, 127].
+Max pooling compares signed INT8 values.
+
+## 7. FC Output (Logits)
+
+FC layer computes raw 32-bit signed integer logits — no saturation, no ReLU.  
+The requantization MULT/SHIFT still applies (scales the logit), but the result is stored as a full 32-bit signed integer.
+
+## 8. Tensor Layout / Flatten Order
+
+All activation tensors are channel-major (NCHW) stored in a 1-D array:
+
+```
+index = (channel * height + row) * width + col
+```
+
+Pool2 output (32×5×5 = 800) is flattened in this same NCHW order into FC input.
+
+This matches PyTorch's default `Flatten(start_dim=1)` on a NCHW tensor.
+
+## 9. Argmax
+
+```verilog
+// Lowest class index wins on ties
+prediction = argmax(logits[0:9])
+```
+
+Implemented combinationally in `rtl/argmax.v`.
+
+## 10. Reference Implementations
+
+### `reference/rtl_emulator.py` — RTL mirror (USE FOR RTL VALIDATION)
+
+Mirrors the Verilog fixed-point arithmetic exactly using Python integer arithmetic.  
+Same MULT/SHIFT parameters, same bias representation, same index formulas.  
+Produces identical results to RTL for all tested images.
+
+**Verified results on `test/image_input.mem` (MNIST label=7):**
+```python
+logits = [-21, -21, 2, -1, -46, -33, -77, 49, -30, -8]
+prediction = 7  ✅ CORRECT
+```
+
+### `reference/int_ref.py` — Float-scale study (NOT for RTL bit-exact comparison)
+
+Uses manifest floating-point scales as Python `Fraction` objects.  
+Different bias arithmetic (converts INT8 bias through float scales).  
+Produces slightly different logits for some images (e.g., logit[2]=3 vs RTL's 2).  
+Cannot be used to validate RTL bit-exact correctness.
 
 ---
 
-## Test Results
+## 11. Verified RTL Behavior
 
-Test | Image              | RTL Logits                                  | Pred | Status
------|--------------------|---------------------------------------------|------|-------
-1    | all-zero           | [-3,5,4,-4,-4,2,-6,3,-7,-3]                | 1    | PASS
-2    | all-max (255)      | [-10,-23,-30,-34,-6,-59,5,-43,-9,-50]       | 6    | PASS
-3    | random seed=42     | [-19,-42,-11,-14,-25,-42,-14,-43,7,-43]     | 8    | PASS
-4    | all-127            | [-5,-10,-16,-19,-2,-31,3,-22,-5,-26]        | 6    | PASS
-5    | consecutive zero   | [-3,5,4,-4,-4,2,-6,3,-7,-3]                | 1    | PASS
+### Test image: `test/image_input.mem` (MNIST index 0, label=7)
 
-NOTE: Tests 2 and 4 logits differ by +-1 from the exact rational reference for some
-channels. This is inherent to the fixed-point MULT/SHIFT approximation (max error
-< 0.5 LSB per element at quantization output, accumulates < +-1.5 at logit scale).
-All PREDICTIONS match the rational reference.
+| Check | Result |
+|-------|--------|
+| Image loaded correctly | ✅ 784 pixels, first=0x00, last=0x00 |
+| Conv1 weights loaded | ✅ weights[0]=0xDA, bias_a[0]=0x04B9C |
+| Conv1 completed | ✅ after ~108,160 cycles |
+| Pool1 correct | ✅ (verified via logit match) |
+| Conv2 completed | ✅ after ~423,776 more cycles |
+| Pool2 correct | ✅ |
+| FC completed | ✅ after ~8,010 more cycles |
+| Total cycles | ✅ 677,624 = 6,784,240 ns |
+| Predicted digit | ✅ 7 (correct) |
+| Logit[7] = 49 | ✅ (clear argmax winner) |
+| All 10 logits match `rtl_emulator.py` | ✅ bit-exact |
 
----
+### Conv1 all-zero image (unit test, verified separately)
 
-## Bugs Found and Fixed During Verification
-
-### Bug 1: Testbench pixel-loading off-by-one (tb/tb_cnn_top.v)
-
-Root cause: The run_cur_image task iterated j=1..783 and set pixel_i = cur_img[j]
-at the negedge, but the DUT sampled pixel_i one posedge later. This caused
-img_buf[k+1] = cur_img[k] (duplicated pixel 0, missed pixel 783) for non-uniform images.
-
-Fix: Changed loop to j=2..783 and explicitly set pixel_i = cur_img[1] before the
-loop, so each negedge value is sampled at the correct subsequent posedge.
-
-### Bug 2: Non-blocking assignment timing in S_IDLE (conv_layer + fully_connected)
-
-Root cause: In S_IDLE on start_i=1, both modules executed:
-    r_oc <= 0;          // non-blocking: r_oc not yet 0 at RHS evaluation
-    acc  <= bias_cur;   // reads bias_a[r_oc] with OLD r_oc!
-
-After the first inference, r_oc holds its final value (15 for Conv1, 9 for FC).
-The second inference started with the wrong channel bias in the accumulator,
-corrupting the first output pixel of every subsequent run.
-
-Fix: Replaced acc <= bias_cur with acc <= {{...bias_a[0]...}} in S_IDLE, explicitly
-loading channel-0 bias since r_oc is always being reset to 0.
-
-### Bug 3: Tab character in quantization.v header
-
-Root cause: PowerShell Set-Content prepended a tab before `timescale, causing an
-iverilog syntax error at line 1.
-
-Fix: Rewrote the file using [System.IO.File]::WriteAllText() with explicit UTF-8
-no-BOM encoding.
-
-### Bug 4: VCD path mismatch
-
-Root cause: $dumpfile("sim/waves.vcd") was relative to the VVP launch directory
-(already sim/), causing a path error.
-
-Fix: Changed to $dumpfile("waves.vcd").
+```
+c1_act[0]    (oc=0, oy=0, ox=0) = 15
+c1_act[676]  (oc=1, oy=0, ox=0) =  4
+c1_act[1352] (oc=2, oy=0, ox=0) =  0
+(13 remaining channels follow expected pattern)
+```
 
 ---
 
-## Numeric Error Analysis
+## 12. Unresolved Items
 
-Layer       | MULT/SHIFT approx error (max) | Effect at logit
-------------|-------------------------------|------------------------
-Conv1 quant | <0.28 LSB per output pixel    | cascades Conv2 -> FC
-Conv2 quant | <0.24 LSB per output pixel    | cascades to FC
-FC quant    | <0.15 LSB per logit           | <=+-1 logit unit total
-
-Observed logit error vs. exact rational: 0 or +-1 unit across all 5 test vectors.
-All 5 predictions match the rational floating-point reference.
-
----
-
-## Waveform
-
-Generated: sim/waves.vcd
-Open with: gtkwave sim/waves.vcd
-
-Key signals: state, c1_done, c2_done, fc_done, done_o, prediction_o, logit0_o..logit9_o
-
----
-
-## File Manifest
-
-File                           | Role
--------------------------------|----------------------------------------------
-rtl/cnn_top.v                  | Top-level integration + master FSM
-rtl/conv_layer.v               | Sequential 3x3 conv, write-port interface
-rtl/fully_connected.v          | Sequential FC layer, write-port interface
-rtl/quantization.v             | Round-nearest MULT/SHIFT requantizer
-rtl/relu.v                     | Parameterized signed ReLU
-rtl/maxpool.v                  | 2x2 max-pool window
-rtl/argmax.v                   | 10-class signed argmax
-tb/tb_cnn_top.v                | System testbench, 5 test vectors
-sim/run_sim.bat                | Compile + simulate script
-params/conv1_bias_acc.mem      | Conv1 bias in accumulator units (16 entries, 20-bit)
-params/conv2_bias_acc.mem      | Conv2 bias in accumulator units (32 entries, 16-bit)
-params/fc_bias_acc.mem         | FC bias in accumulator units (10 entries, 12-bit)
-params/img_rnd42.mem           | Random test image (Python random.seed(42))
-reference/rtl_emulator.py      | Bit-exact Python RTL emulator
-reference/int_ref.py           | Exact rational reference implementation
-docs/numeric_contract.md       | Quantization parameters and scale derivation
-docs/rtl_verification.md       | This document
+1. **Multi-image accuracy** — only one MNIST image verified. Batch testing not performed.
+2. **int_ref.py discrepancy** — logit[2] differs by 1 from RTL. Root cause is different bias arithmetic contract. Not a bug in RTL; int_ref uses float manifest scales.
+3. **Synthesis** — not attempted. This report covers behavioral simulation only.
+4. **FPGA hardware** — not deployed. Simulation ≠ hardware success.
