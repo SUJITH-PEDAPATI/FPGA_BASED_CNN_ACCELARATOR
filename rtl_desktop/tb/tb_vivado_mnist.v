@@ -90,11 +90,42 @@ module tb_vivado_mnist;
         // ABSOLUTE PATH -- update if folder moves
         $readmemh("F:/QUANTA_2/rtl_desktop/test/image_input.mem", img);
 
-        // Sanity check: print three pixel values
-        $display("Image loaded:  img[0]=0x%02h  img[391]=0x%02h  img[783]=0x%02h",
-                 img[0], img[391], img[783]);
-        if (^img[0] === 1'bx)
-            $display("WARNING: img[0] is X -- image_input.mem path may be wrong!");
+        // ====================================================================
+        // DIAGNOSTICS: Check image pixels and DUT weight/bias memory loading
+        // ====================================================================
+        #1; // allow initial blocks in DUT to complete loading
+        $display("----------------- DIAGNOSTIC MEMORY AUDIT -----------------");
+        $display("Image pixels: img[0]=0x%02h img[1]=0x%02h img[203]=0x%02h img[783]=0x%02h",
+                 img[0], img[1], img[203], img[783]);
+        if (^img[0] === 1'bx || ^img[203] === 1'bx || ^img[783] === 1'bx)
+            $display("[FAIL] Image memory contains X/Z values! Check image_input.mem path.");
+        else
+            $display("[PASS] Image memory initialized successfully without X/Z.");
+
+        $display("Conv1: weight[0]=0x%02h (%0d), bias[0]=0x%05h (%0d)",
+                 dut.u_conv1.weights[0], $signed(dut.u_conv1.weights[0]),
+                 dut.u_conv1.bias_a[0], $signed(dut.u_conv1.bias_a[0]));
+        if (^dut.u_conv1.weights[0] === 1'bx || ^dut.u_conv1.bias_a[0] === 1'bx)
+            $display("[FAIL] Conv1 weight/bias contains X/Z values! Check conv1 path.");
+        else
+            $display("[PASS] Conv1 weight and bias initialized successfully.");
+
+        $display("Conv2: weight[0]=0x%02h (%0d), bias[0]=0x%04h (%0d)",
+                 dut.u_conv2.weights[0], $signed(dut.u_conv2.weights[0]),
+                 dut.u_conv2.bias_a[0], $signed(dut.u_conv2.bias_a[0]));
+        if (^dut.u_conv2.weights[0] === 1'bx || ^dut.u_conv2.bias_a[0] === 1'bx)
+            $display("[FAIL] Conv2 weight/bias contains X/Z values! Check conv2 path.");
+        else
+            $display("[PASS] Conv2 weight and bias initialized successfully.");
+
+        $display("FC   : weight[0]=0x%02h (%0d), bias[0]=0x%03h (%0d)",
+                 dut.u_fc.weights[0], $signed(dut.u_fc.weights[0]),
+                 dut.u_fc.bias_a[0], $signed(dut.u_fc.bias_a[0]));
+        if (^dut.u_fc.weights[0] === 1'bx || ^dut.u_fc.bias_a[0] === 1'bx)
+            $display("[FAIL] FC weight/bias contains X/Z values! Check fc path.");
+        else
+            $display("[PASS] FC weight and bias initialized successfully.");
+        $display("-----------------------------------------------------------");
 
         // Reset: assert low for 6 cycles, then release
         repeat(6) @(posedge clk);

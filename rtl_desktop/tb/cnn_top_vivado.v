@@ -59,10 +59,8 @@ module cnn_top (
     conv_layer #(
         .IN_CH(1), .IN_H(28), .IN_W(28), .OUT_CH(16),
         // ABSOLUTE PATH -- update if folder moves
-        //.WEIGHT_FILE("F:/QUANTA_2/rtl_desktop/conv1_weights_int.mem"),
-        .WEIGHT_FILE("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/conv1_weights_int.mem"),
-        //.BIAS_FILE  ("F:/QUANTA_2/rtl_desktop/params/conv1_bias_acc.mem"),
-        .BIAS_FILE  ("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/conv1_bias_acc.mem"),
+        .WEIGHT_FILE("F:/QUANTA_2/rtl_desktop/conv1_weights_int.mem"),
+        .BIAS_FILE  ("F:/QUANTA_2/rtl_desktop/params/conv1_bias_acc.mem"),
         .BIAS_WIDTH(20), .RQUANT_MULT(201), .RQUANT_SHIFT(18), .FIRST_LAYER(1)
     ) u_conv1 (
         .clk(clk), .rst_n(rst_n), .start_i(c1_start_r),
@@ -87,8 +85,8 @@ module cnn_top (
     conv_layer #(
         .IN_CH(16), .IN_H(13), .IN_W(13), .OUT_CH(32),
         // ABSOLUTE PATH -- update if folder moves
-        .WEIGHT_FILE("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/conv2_weights_int.mem"),
-        .BIAS_FILE  ("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/conv2_bias_acc.mem"),
+        .WEIGHT_FILE("F:/QUANTA_2/rtl_desktop/conv2_weights_int.mem"),
+        .BIAS_FILE  ("F:/QUANTA_2/rtl_desktop/params/conv2_bias_acc.mem"),
         .BIAS_WIDTH(16), .RQUANT_MULT(2637), .RQUANT_SHIFT(21), .FIRST_LAYER(0)
     ) u_conv2 (
         .clk(clk), .rst_n(rst_n), .start_i(c2_start_r),
@@ -113,8 +111,8 @@ module cnn_top (
     fully_connected #(
         .IN_FEATURES(800), .OUT_FEATURES(10),
         // ABSOLUTE PATH -- update if folder moves
-        .WEIGHT_FILE("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/fc1_weights_int.mem"),
-        .BIAS_FILE  ("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/fc_bias_acc.mem"),
+        .WEIGHT_FILE("F:/QUANTA_2/rtl_desktop/fc1_weights_int.mem"),
+        .BIAS_FILE  ("F:/QUANTA_2/rtl_desktop/params/fc_bias_acc.mem"),
         .BIAS_WIDTH(12), .RQUANT_MULT(1965), .RQUANT_SHIFT(21)
     ) u_fc (
         .clk(clk), .rst_n(rst_n), .start_i(fc_start_r),
