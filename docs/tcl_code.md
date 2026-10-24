@@ -1,0 +1,1 @@
+set_property -name {xsim.simulate.runtime} -value {7500us} -objects [get_filesets sim_1]
