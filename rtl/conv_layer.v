@@ -7,8 +7,8 @@
 // ACCUM: accumulate 9*IN_CH products for one output pixel.
 // WRITE: quantize, write output, reset counters for next pixel.
 //
-// in_rd_addr is set at end of each ACCUM/WRITE cycle so data is
-// valid on the NEXT posedge (one-cycle read latency model).
+// Single-port synchronous weight ROM read (r_wdata) pipelines weight fetch,
+// breaking the 16.7 ns critical path into two balanced ~5 ns stages.
 
 `default_nettype none
 
@@ -51,11 +51,12 @@ module conv_layer #(
         $readmemh(BIAS_FILE,   bias_a);
     end
 
-    localparam [1:0] S_IDLE  = 2'd0,
-                     S_ACCUM = 2'd1,
-                     S_WRITE = 2'd2,
-                     S_DONE  = 2'd3;
-    reg [1:0] state;
+    localparam [2:0] S_IDLE  = 3'd0,
+                     S_ACCUM = 3'd1,
+                     S_DRAIN = 3'd2,
+                     S_WRITE = 3'd3,
+                     S_DONE  = 3'd4;
+    reg [2:0] state;
 
     reg [$clog2(OUT_CH+1)-1:0] r_oc;
     reg [$clog2(OUT_H+1)-1:0]  r_oy;
@@ -65,19 +66,64 @@ module conv_layer #(
     reg [1:0]                   r_kx;
     reg signed [31:0]           acc;
 
-    // Weight index: must use registered counters
-    wire [$clog2(W_COUNT+1)-1:0] widx;
-    assign widx = (r_oc * IN_CH + r_ic) * 9 + r_ky * 3 + r_kx;
+    // Single-port pipelined weight read
+    reg [$clog2(W_COUNT+1)-1:0] r_widx;
+    reg [$clog2(W_COUNT+1)-1:0] r_oc_base;
+    reg [$clog2(W_COUNT+1)-1:0] widx_next;
+    reg signed [7:0]            r_wdata;
 
     // Input sign/zero extension
     wire signed [8:0]  in_ext;
     assign in_ext = FIRST_LAYER ? {1'b0, in_rd_data} : {in_rd_data[7], in_rd_data};
 
-    wire signed [16:0] mac_term;
-    assign mac_term = in_ext * $signed(weights[widx]);
+    // Pipelined MAC multiplier stage to break 14.7 ns critical path
+    (* use_dsp = "yes" *) reg signed [16:0] mac_term_r;
+    reg               mac_valid;
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            mac_term_r <= 17'sd0;
+            mac_valid  <= 1'b0;
+        end else begin
+            mac_term_r <= in_ext * r_wdata;
+            mac_valid  <= (state == S_ACCUM);
+        end
+    end
 
     wire last_tap;
     assign last_tap = (r_ic == IN_CH-1) && (r_ky == 2'd2) && (r_kx == 2'd2);
+
+    // Single-port weight address multiplexer
+    always @(*) begin
+        case (state)
+            S_IDLE: begin
+                widx_next = 0;
+            end
+            S_ACCUM: begin
+                widx_next = last_tap ? r_oc_base : (r_widx + 1'b1);
+            end
+            S_DRAIN: begin
+                widx_next = r_oc_base;
+            end
+            S_WRITE: begin
+                if (r_ox < OUT_W - 1 || r_oy < OUT_H - 1)
+                    widx_next = r_oc_base;
+                else if (r_oc < OUT_CH - 1)
+                    widx_next = r_oc_base + (IN_CH * 9);
+                else
+                    widx_next = 0;
+            end
+            default: widx_next = 0;
+        endcase
+    end
+
+    // Single-port weight memory read register
+    always @(posedge clk) begin
+        if (start_i || state == S_ACCUM || state == S_DRAIN || state == S_WRITE) begin
+            r_wdata <= weights[widx_next];
+            r_widx  <= widx_next;
+        end
+    end
 
     // Bias sign extension helper
     wire signed [31:0] bias_cur;
@@ -93,14 +139,15 @@ module conv_layer #(
     wire [$clog2(OUT_CH*(IN_H-2)*(IN_W-2)+1)-1:0] oaddr;
     assign oaddr = (r_oc * OUT_H + r_oy) * OUT_W + r_ox;
 
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge clk) begin
         if (!rst_n) begin
-            state      <= S_IDLE;
-            done_o     <= 1'b0; busy_o <= 1'b0; out_wr_en <= 1'b0;
+            state       <= S_IDLE;
+            done_o      <= 1'b0; busy_o <= 1'b0; out_wr_en <= 1'b0;
             r_oc<=0; r_oy<=0; r_ox<=0; r_ic<=0; r_ky<=0; r_kx<=0;
-            acc        <= 32'sd0;
-            in_rd_addr <= 0;
-            out_wr_addr<= 0; out_wr_data <= 8'sd0;
+            acc         <= 32'sd0;
+            in_rd_addr  <= 0;
+            out_wr_addr <= 0; out_wr_data <= 8'sd0;
+            r_oc_base   <= 0;
         end else begin
             done_o    <= 1'b0;
             out_wr_en <= 1'b0;
@@ -111,42 +158,46 @@ module conv_layer #(
                 busy_o <= 1'b0;
                 if (start_i) begin
                     r_oc<=0; r_oy<=0; r_ox<=0; r_ic<=0; r_ky<=2'd0; r_kx<=2'd0;
-                    // NOTE: r_oc<=0 is non-blocking; bias_cur still reads OLD r_oc.
-                    // Explicitly load bias_a[0] for the first output channel.
                     acc <= {{(32-BIAS_WIDTH){bias_a[0][BIAS_WIDTH-1]}}, bias_a[0]};
                     in_rd_addr <= 0;
-                    state  <= S_ACCUM;
-                    busy_o <= 1'b1;
+                    r_oc_base  <= 0;
+                    state      <= S_ACCUM;
+                    busy_o     <= 1'b1;
                 end
             end
 
             S_ACCUM: begin
-                // in_rd_data valid this cycle (addr was set prev cycle)
-                acc <= acc + mac_term;
+                if (mac_valid)
+                    acc <= acc + mac_term_r;
 
                 if (last_tap) begin
-                    state <= S_WRITE;
-                    // Don't need to update in_rd_addr here; S_WRITE will set for next pixel
+                    state <= S_DRAIN;
                 end else begin
                     // Advance tap counters
                     if (r_kx == 2'd2) begin
                         r_kx <= 2'd0;
                         if (r_ky == 2'd2) begin
                             r_ky <= 2'd0;
-                            r_ic <= r_ic + 1;
+                            r_ic <= r_ic + 1'b1;
                             // in_rd_addr for next: ic+1, ky=0, kx=0
                             in_rd_addr <= (r_ic+1)*(IN_H*IN_W) + r_oy*IN_W + r_ox;
                         end else begin
-                            r_ky <= r_ky + 1;
+                            r_ky <= r_ky + 1'b1;
                             // in_rd_addr for next: same ic, ky+1, kx=0
                             in_rd_addr <= r_ic*(IN_H*IN_W) + (r_oy+r_ky+1)*IN_W + r_ox;
                         end
                     end else begin
-                        r_kx <= r_kx + 1;
+                        r_kx <= r_kx + 1'b1;
                         // in_rd_addr for next: same ic,ky, kx+1
                         in_rd_addr <= r_ic*(IN_H*IN_W) + (r_oy+r_ky)*IN_W + (r_ox+r_kx+1);
                     end
                 end
+            end
+
+            S_DRAIN: begin
+                if (mac_valid)
+                    acc <= acc + mac_term_r;
+                state <= S_WRITE;
             end
 
             S_WRITE: begin
@@ -157,30 +208,29 @@ module conv_layer #(
 
                 // Advance output counters and reset tap counters
                 if (r_ox < OUT_W - 1) begin
-                    r_ox <= r_ox + 1;
+                    r_ox <= r_ox + 1'b1;
                     r_ic <= 0; r_ky <= 2'd0; r_kx <= 2'd0;
                     acc  <= bias_cur;
                     // Next pixel: oy same, ox+1, ic=0, ky=0, kx=0
                     in_rd_addr <= r_oy*IN_W + (r_ox+1);
-                    state <= S_ACCUM;
+                    state      <= S_ACCUM;
                 end else if (r_oy < OUT_H - 1) begin
                     r_ox <= 0;
-                    r_oy <= r_oy + 1;
+                    r_oy <= r_oy + 1'b1;
                     r_ic <= 0; r_ky <= 2'd0; r_kx <= 2'd0;
                     acc  <= bias_cur;
                     // Next pixel: oy+1, ox=0, ic=0, ky=0, kx=0
                     in_rd_addr <= (r_oy+1)*IN_W;
-                    state <= S_ACCUM;
+                    state      <= S_ACCUM;
                 end else if (r_oc < OUT_CH - 1) begin
                     r_ox <= 0; r_oy <= 0;
-                    r_oc <= r_oc + 1;
+                    r_oc <= r_oc + 1'b1;
                     r_ic <= 0; r_ky <= 2'd0; r_kx <= 2'd0;
-                    // bias for oc+1 -- use blocking read trick: delay 1 cycle via S_IDLE?
-                    // Non-blocking: bias_a[r_oc+1] reads r_oc's OLD value, which is correct
                     acc  <= {{(32-BIAS_WIDTH){bias_a[r_oc+1][BIAS_WIDTH-1]}}, bias_a[r_oc+1]};
                     // Next pixel: oc+1, oy=0, ox=0, ic=0, ky=0, kx=0
                     in_rd_addr <= 0;
-                    state <= S_ACCUM;
+                    r_oc_base  <= r_oc_base + (IN_CH * 9);
+                    state      <= S_ACCUM;
                 end else begin
                     state <= S_DONE;
                 end

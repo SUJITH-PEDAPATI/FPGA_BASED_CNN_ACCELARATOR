@@ -1,0 +1,20 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/vivado_2026_1/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe -top tb_vivado_mnist -snapshot tb_snap 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.quantization(RELU=1)
+Compiling module work.conv_layer(WEIGHT_FILE="../conv1...
+Compiling module work.quantization(MULT=2637,SHIFT=21,...
+Compiling module work.conv_layer(IN_CH=16,IN_H=13,IN_W...
+Compiling module work.fully_connected(WEIGHT_FILE="../...
+Compiling module work.argmax
+Compiling module work.cnn_top
+Compiling module work.tb_vivado_mnist
+Built simulation snapshot tb_snap

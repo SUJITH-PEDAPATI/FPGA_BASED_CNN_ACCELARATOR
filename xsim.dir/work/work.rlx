@@ -1,0 +1,10 @@
+0.7
+2020.2
+Jun 16 2026
+11:10:11
+F:/QUANTA_2/rtl/argmax.v,1792765748,verilog,,F:/QUANTA_2/tb/cnn_top_vivado.v,,argmax,,,F:/QUANTA_2,,,,,
+F:/QUANTA_2/rtl/cnn_top.v,1793081123,verilog,,,,cnn_top,,,F:/QUANTA_2,,,,,
+F:/QUANTA_2/rtl/conv_layer.v,1792768552,verilog,,F:/QUANTA_2/rtl/fully_connected.v,,conv_layer,,,F:/QUANTA_2,,,,,
+F:/QUANTA_2/rtl/fully_connected.v,1792768589,verilog,,F:/QUANTA_2/rtl/argmax.v,,fully_connected,,,F:/QUANTA_2,,,,,
+F:/QUANTA_2/rtl/quantization.v,1792765729,verilog,,F:/QUANTA_2/rtl/conv_layer.v,,quantization,,,F:/QUANTA_2,,,,,
+F:/QUANTA_2/tb/tb_vivado_mnist.v,1793081335,verilog,,,,tb_vivado_mnist,,,F:/QUANTA_2,,,,,

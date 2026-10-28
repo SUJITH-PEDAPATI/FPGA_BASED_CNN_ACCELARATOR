@@ -1,0 +1,93 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 19:09:07 2026
+# Process ID         : 20776
+# Current directory  : F:/QUANTA_2/synthesis
+# Command line       : vivado.exe -mode batch -notrace -source inspect_bd.tcl
+# Log file           : F:/QUANTA_2/synthesis/vivado.log
+# Journal file       : F:/QUANTA_2/synthesis\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 10517 MB
+#-----------------------------------------------------------
+source inspect_bd.tcl -notrace
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.vhdl'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 652.227 ; gain = 308.270
+Reading block design file <E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/bd/vlsi_design/vlsi_design.bd>...
+Adding component instance block -- xilinx.com:ip:vio:3.0 - vio_0
+Adding component instance block -- xilinx.com:ip:ila:6.2 - ila_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_0: AMD recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+Adding component instance block -- xilinx.com:module_ref:cnn_top:1.0 - cnn_top_0
+Adding component instance block -- xilinx.com:module_ref:pixel_controller:1.0 - pixel_controller_0
+Successfully read diagram <vlsi_design> from block design file <E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/bd/vlsi_design/vlsi_design.bd>
+=== ILA PINS ===
+ILA PIN: /ila_0/clk -> net: /clk_0_1
+ILA PIN: /ila_0/probe0 -> net: /cnn_top_0_busy_o
+ILA PIN: /ila_0/probe1 -> net: /cnn_top_0_done_o
+ILA PIN: /ila_0/probe2 -> net: /cnn_top_0_prediction_o
+ILA PIN: /ila_0/probe3 -> net: /cnn_top_0_pixel_idx_o
+ILA PIN: /ila_0/probe4 -> net: /cnn_top_0_load_o
+=== CNN TOP PINS ===
+CNN PIN: /cnn_top_0/busy_o -> net: /cnn_top_0_busy_o
+CNN PIN: /cnn_top_0/clk -> net: /clk_0_1
+CNN PIN: /cnn_top_0/done_o -> net: /cnn_top_0_done_o
+CNN PIN: /cnn_top_0/load_o -> net: /cnn_top_0_load_o
+CNN PIN: /cnn_top_0/logit0_o -> net: /cnn_top_0_logit0_o
+CNN PIN: /cnn_top_0/logit1_o -> net: /cnn_top_0_logit1_o
+CNN PIN: /cnn_top_0/logit2_o -> net: /cnn_top_0_logit2_o
+CNN PIN: /cnn_top_0/logit3_o -> net: /cnn_top_0_logit3_o
+CNN PIN: /cnn_top_0/logit4_o -> net: /cnn_top_0_logit4_o
+CNN PIN: /cnn_top_0/logit5_o -> net: /cnn_top_0_logit5_o
+CNN PIN: /cnn_top_0/logit6_o -> net: /cnn_top_0_logit6_o
+CNN PIN: /cnn_top_0/logit7_o -> net: /cnn_top_0_logit7_o
+CNN PIN: /cnn_top_0/logit8_o -> net: /cnn_top_0_logit8_o
+CNN PIN: /cnn_top_0/logit9_o -> net: /cnn_top_0_logit9_o
+CNN PIN: /cnn_top_0/pixel_i -> net: /pixel_controller_0_pixel_o
+CNN PIN: /cnn_top_0/pixel_idx_o -> net: /cnn_top_0_pixel_idx_o
+CNN PIN: /cnn_top_0/prediction_o -> net: /cnn_top_0_prediction_o
+CNN PIN: /cnn_top_0/rst_n -> net: /vio_0_probe_out1
+CNN PIN: /cnn_top_0/start_i -> net: /pixel_controller_0_cnn_start_o
+=== ALL BD NETS ===
+NET: /clk_0_1
+NET: /cnn_top_0_busy_o
+NET: /cnn_top_0_done_o
+NET: /cnn_top_0_load_o
+NET: /cnn_top_0_logit0_o
+NET: /cnn_top_0_logit1_o
+NET: /cnn_top_0_logit2_o
+NET: /cnn_top_0_logit3_o
+NET: /cnn_top_0_logit4_o
+NET: /cnn_top_0_logit5_o
+NET: /cnn_top_0_logit6_o
+NET: /cnn_top_0_logit7_o
+NET: /cnn_top_0_logit8_o
+NET: /cnn_top_0_logit9_o
+NET: /cnn_top_0_pixel_idx_o
+NET: /cnn_top_0_prediction_o
+NET: /pixel_controller_0_cnn_start_o
+NET: /pixel_controller_0_image_active_o
+NET: /pixel_controller_0_pixel_o
+NET: /vio_0_probe_out0
+NET: /vio_0_probe_out1
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 19:09:19 2026...

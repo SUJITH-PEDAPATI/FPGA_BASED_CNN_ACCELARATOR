@@ -1,0 +1,40 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 21:27:01 2026
+# Process ID         : 4740
+# Current directory  : F:/QUANTA_2
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\check_strategies.tcl
+# Log file           : F:/QUANTA_2/vivado.log
+# Journal file       : F:/QUANTA_2\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 4670 MB
+#-----------------------------------------------------------
+source {C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\check_strategies.tcl} -notrace
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 654.969 ; gain = 309.695
+Current impl_1 strategy: Vivado Implementation Defaults
+Available strategies for Implementation:
+invalid command name "get_strategies"
+    while executing
+"get_strategies -filter {FLOW == "Vivado Implementation 2026" || FLOW == "Vivado Implementation 2024" || FLOW == "Vivado Implementation 2023" || FLOW =..."
+    invoked from within
+"foreach s [get_strategies -filter {FLOW == "Vivado Implementation 2026" || FLOW == "Vivado Implementation 2024" || FLOW == "Vivado Implementation 2023..."
+    (file "C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\check_strategies.tcl" line 6)
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 21:27:11 2026...

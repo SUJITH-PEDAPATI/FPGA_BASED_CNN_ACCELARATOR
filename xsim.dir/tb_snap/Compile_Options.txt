@@ -1,0 +1,1 @@
+-top "tb_vivado_mnist" -snapshot "tb_snap" 

@@ -1,0 +1,39 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 18:25:10 2026
+# Process ID         : 41680
+# Current directory  : F:/QUANTA_2
+# Command line       : vivado.exe -mode batch -source f:/QUANTA_2/synthesis/run_full_flow.tcl -notrace
+# Log file           : F:/QUANTA_2/vivado.log
+# Journal file       : F:/QUANTA_2\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 9886 MB
+#-----------------------------------------------------------
+source f:/QUANTA_2/synthesis/run_full_flow.tcl -notrace
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 654.855 ; gain = 309.789
+INFO: [BD 41-1637] Generated targets are already up-to-date for block design 'vlsi_design' - hence not re-generating.
+[Tue Oct 27 18:25:20 2026] Launched vlsi_design_cnn_top_0_0_synth_1, synth_1...
+Run output will be captured here:
+vlsi_design_cnn_top_0_0_synth_1: E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_cnn_top_0_0_synth_1/runme.log
+synth_1: E:/QUANTA_VLSI/success_test_1/success_test_1.runs/synth_1/runme.log
+[Tue Oct 27 18:25:21 2026] Launched impl_1...
+Run output will be captured here: E:/QUANTA_VLSI/success_test_1/success_test_1.runs/impl_1/runme.log
+[Tue Oct 27 18:25:21 2026] Waiting for impl_1 to finish...

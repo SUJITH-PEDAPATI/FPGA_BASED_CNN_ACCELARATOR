@@ -44,24 +44,31 @@ module fully_connected #(
     end
 
     // FSM
-    localparam [1:0] S_IDLE  = 2'd0,
-                     S_ACCUM = 2'd1,
-                     S_WRITE = 2'd2,
-                     S_DONE  = 2'd3;
-    reg [1:0] state;
+    localparam [2:0] S_IDLE  = 3'd0,
+                     S_ACCUM = 3'd1,
+                     S_DRAIN = 3'd2,
+                     S_WRITE = 3'd3,
+                     S_DONE  = 3'd4;
+    reg [2:0] state;
 
     reg [3:0]                              r_oc;
     reg [$clog2(IN_FEATURES+1)-1:0]        r_i;
     reg signed [31:0]                      acc;
+    reg [$clog2(W_COUNT+1)-1:0]            widx_r;
 
-    wire [$clog2(W_COUNT+1)-1:0] widx;
-    assign widx = {r_oc, {$clog2(IN_FEATURES){1'b0}}} + r_i;
-    // Explicit: widx = r_oc * IN_FEATURES + r_i (use multiply for generality)
-    // For Verilog-2001 with parameters, use arithmetic:
-    // widx = r_oc * IN_FEATURES + r_i  -- simulator handles this
+    // Pipelined MAC multiplier stage to break 14.5 ns critical path
+    (* use_dsp = "yes" *) reg signed [15:0] mac_term_r;
+    reg               mac_valid;
 
-    wire signed [15:0] mac_term;
-    assign mac_term = in_rd_data * $signed(weights[r_oc * IN_FEATURES + r_i]);
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            mac_term_r <= 16'sd0;
+            mac_valid  <= 1'b0;
+        end else begin
+            mac_term_r <= in_rd_data * $signed(weights[widx_r]);
+            mac_valid  <= (state == S_ACCUM);
+        end
+    end
 
     wire last_i;
     assign last_i = (r_i == IN_FEATURES - 1);
@@ -72,20 +79,21 @@ module fully_connected #(
     // Requantization for logit output (no saturation, no relu)
     // logit = round_away(acc * RQUANT_MULT >> RQUANT_SHIFT)
     localparam integer PROD_W = 49;
-    wire signed [PROD_W-1:0] prod_r;
+    (* use_dsp = "yes" *) wire signed [PROD_W-1:0] prod_r;
     wire signed [PROD_W-1:0] prod_round;
     wire signed [31:0]        logit_val;
     assign prod_r     = $signed(acc) * $signed({1'b0, RQUANT_MULT[15:0]});
     assign prod_round = prod_r + ($signed({{(PROD_W-1){1'b0}}, 1'b1}) << (RQUANT_SHIFT-1));
     assign logit_val  = $signed(prod_round) >>> RQUANT_SHIFT;
 
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge clk) begin
         if (!rst_n) begin
             state      <= S_IDLE;
             done_o     <= 1'b0;
             busy_o     <= 1'b0;
             out_wr_en  <= 1'b0;
             r_oc <= 0; r_i <= 0;
+            widx_r     <= 0;
             acc        <= 32'sd0;
             in_rd_addr <= 0;
             out_wr_addr<= 0;
@@ -99,6 +107,7 @@ module fully_connected #(
                 busy_o <= 1'b0;
                 if (start_i) begin
                     r_oc <= 0; r_i <= 0;
+                    widx_r <= 0;
                     // bias_ext reads bias_a[r_oc] with OLD r_oc; explicitly load bias_a[0]
                     acc  <= {{(32-BIAS_WIDTH){bias_a[0][BIAS_WIDTH-1]}}, bias_a[0]};
                     in_rd_addr <= 0;
@@ -108,13 +117,22 @@ module fully_connected #(
             end
 
             S_ACCUM: begin
-                acc <= acc + mac_term;
+                if (mac_valid)
+                    acc <= acc + mac_term_r;
+
                 if (last_i) begin
-                    state <= S_WRITE;
+                    state <= S_DRAIN;
                 end else begin
                     r_i <= r_i + 1;
                     in_rd_addr <= r_i + 1;
+                    widx_r <= widx_r + 1;
                 end
+            end
+
+            S_DRAIN: begin
+                if (mac_valid)
+                    acc <= acc + mac_term_r;
+                state <= S_WRITE;
             end
 
             S_WRITE: begin
@@ -129,6 +147,7 @@ module fully_connected #(
                     acc  <= {{(32-BIAS_WIDTH){bias_a[r_oc+1][BIAS_WIDTH-1]}},
                               bias_a[r_oc+1]};
                     in_rd_addr <= 0;
+                    widx_r <= (r_oc + 1) * IN_FEATURES;
                     state <= S_ACCUM;
                 end
             end

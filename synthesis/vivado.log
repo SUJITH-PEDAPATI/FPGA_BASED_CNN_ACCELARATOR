@@ -1,0 +1,606 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 19:17:51 2026
+# Process ID         : 40360
+# Current directory  : F:/QUANTA_2/synthesis
+# Command line       : vivado.exe -mode batch -notrace -source test_synth_ila.tcl
+# Log file           : F:/QUANTA_2/synthesis/vivado.log
+# Journal file       : F:/QUANTA_2/synthesis\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 10476 MB
+#-----------------------------------------------------------
+source test_synth_ila.tcl -notrace
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.vhdl'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 655.770 ; gain = 311.117
+=== LAUNCHING ILA SYNTHESIS SUB-RUN ===
+[Tue Oct 27 19:18:02 2026] Launched vlsi_design_ila_0_0_synth_1...
+Run output will be captured here: E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/runme.log
+[Tue Oct 27 19:18:02 2026] Waiting for vlsi_design_ila_0_0_synth_1 to finish...
+
+*** Running vivado
+    with args -log vlsi_design_ila_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source vlsi_design_ila_0_0.tcl
+
+
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 19:18:03 2026
+# Process ID         : 33916
+# Current directory  : E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1
+# Command line       : vivado.exe -log vlsi_design_ila_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vlsi_design_ila_0_0.tcl
+# Log file           : E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/vlsi_design_ila_0_0.vds
+# Journal file       : E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 9708 MB
+#-----------------------------------------------------------
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Oct 27 19:18:03 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source vlsi_design_ila_0_0.tcl -notrace
+Command: synth_design -top vlsi_design_ila_0_0 -part xc7z020clg484-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Vivado_Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Vivado_Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17396
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1451.754 ; gain = 577.332
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:30]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:32]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:69]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:71]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:109]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:111]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:150]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:152]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:192]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:194]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:235]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:237]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:279]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:281]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:324]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:326]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:370]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:372]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:417]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:419]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:465]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:467]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:514]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:516]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:564]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:566]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:615]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_ext.vh:617]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:30]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:32]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:69]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:71]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:109]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:111]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:150]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:152]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:192]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:194]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:235]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:237]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:279]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:281]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:324]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:326]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:370]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:372]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:417]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:419]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:465]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:467]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:514]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:516]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:564]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:566]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:615]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core.vh:617]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:30]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:32]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:65]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:67]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:100]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:102]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:135]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:137]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:170]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:172]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:205]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:207]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:240]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:242]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:275]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:277]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:310]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:312]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:345]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:347]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:380]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:382]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:415]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:417]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:450]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:452]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:485]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:487]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:30]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:32]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:65]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:67]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:100]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:102]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:135]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:137]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:170]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:172]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:205]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:207]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:240]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:242]
+INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:275]
+INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ipshared/10b4/hdl/verilog/xsdbm_v3_0_6_bs_core_vec.vh:277]
+INFO: [Common 17-14] Message 'Synth 8-11241' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6157] synthesizing module 'vlsi_design_ila_0_0' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'CFGLUT5' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:3131]
+INFO: [Synth 8-6155] done synthesizing module 'CFGLUT5' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:3131]
+INFO: [Synth 8-6157] synthesizing module 'CARRY4' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:3094]
+INFO: [Synth 8-6155] done synthesizing module 'CARRY4' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:3094]
+INFO: [Synth 8-6157] synthesizing module 'SRLC32E' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170899]
+INFO: [Synth 8-6155] done synthesizing module 'SRLC32E' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170899]
+INFO: [Synth 8-6157] synthesizing module 'SRL16E' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170749]
+INFO: [Synth 8-6155] done synthesizing module 'SRL16E' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170749]
+INFO: [Synth 8-6157] synthesizing module 'SRLC16E' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170838]
+INFO: [Synth 8-6155] done synthesizing module 'SRLC16E' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:170838]
+INFO: [Synth 8-6157] synthesizing module 'FDRE' [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:49396]
+INFO: [Synth 8-6155] done synthesizing module 'FDRE' (0#1) [E:/vivado_2026_1/2026.1/Vivado/scripts/rt/data/unisim_comp.v:49396]
+INFO: [Synth 8-7071] port 'clk_nobuf' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7071] port 'clkdiv_out' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7071] port 'trig_in' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7071] port 'trig_in_ack' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7071] port 'trig_out' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7071] port 'trig_out_ack' of module 'ila_v6_2_20_ila' is unconnected for instance 'inst' [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-7023] instance 'inst' of module 'ila_v6_2_20_ila' has 1033 connections declared, but only 1027 given [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:3217]
+INFO: [Synth 8-6155] done synthesizing module 'vlsi_design_ila_0_0' (0#1) [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:48]
+INFO: [Synth 8-3848] Net sl_iport0 in module/entity vlsi_design_ila_0_0 does not have driver. [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v:106]
+INFO: [Synth 8-7129] Port CLKB in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[17] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[16] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[15] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[14] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[13] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[12] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[11] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[10] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[9] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[8] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[7] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[6] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[5] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[4] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[3] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[2] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[1] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA_I[0] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port SBITERR_I in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DBITERR_I in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[9] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[8] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[7] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[6] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[5] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[4] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[3] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[2] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[1] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RDADDRECC_I[0] in module blk_mem_gen_v8_4_13_blk_mem_output_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[17] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[16] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[15] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[14] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[13] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[12] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[11] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[10] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[9] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[8] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[7] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[6] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[5] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[4] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[3] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[2] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[1] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DOUTA[0] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port SBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSRA in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port REGCEA in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSRB in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port WEB[0] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[17] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[16] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[15] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[14] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[13] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[12] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[11] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[10] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[9] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[8] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[7] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[6] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[5] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[4] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[3] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[2] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[1] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[0] in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port SLEEP in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port INJECTSBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port INJECTDBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port ECCPIPECE in module blk_mem_gen_v8_4_13_blk_mem_gen_prim_wrapper is either unconnected or has no load
+INFO: [Synth 8-7129] Port RSTA[0] in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port WEA[1] in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port RSTB[0] in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port WEB[1] in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port INJECTSBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port INJECTDBITERR in module blk_mem_gen_v8_4_13_blk_mem_gen_generic_cstr is either unconnected or has no load
+INFO: [Synth 8-7129] Port RSTA in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port ENA in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port REGCEA in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port RSTB in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port REGCEB in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port WEB[0] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[17] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[16] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[15] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[14] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[13] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[12] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[11] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[10] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[9] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[8] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Synth 8-7129] Port DINB[7] in module blk_mem_gen_v8_4_13_blk_mem_input_block is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2014.691 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 84 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/vlsi_design_ila_0_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/vlsi_design_ila_0_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'inst'
+Finished Parsing XDC File [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/ila_v6_2/constraints/ila.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vlsi_design_ila_0_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/vlsi_design_ila_0_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2014.691 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 61 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 52 instances
+  CFGLUT5 => SRLC32E: 9 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 2014.691 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized2'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized3'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized4'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_6_reg_p2s__parameterized5'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'ltlib_v1_0_4_generic_memrd'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized3'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized4'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'xsdbs_v1_0_6_reg_p2s__parameterized5'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              RESET_ADDR |                          0000001 |                          0000001
+            REQUEST_READ |                          0000010 |                          0000010
+           WAIT_READ_ACK |                          0000100 |                          0000100
+             OUTPUT_DATA |                          0001000 |                          0001000
+                    IDLE |                          0010000 |                          0010000
+         INCREMENT_BLOCK |                          0100000 |                          0100000
+       INCREMENT_ADDRESS |                          1000000 |                          1000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'ltlib_v1_0_4_generic_memrd'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 2014.691 ; gain = 1140.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    22|
+|2     |CFGLUT5  |    61|
+|3     |LUT1     |    31|
+|4     |LUT2     |    77|
+|5     |LUT3     |   121|
+|6     |LUT4     |   174|
+|7     |LUT5     |    99|
+|8     |LUT6     |   318|
+|9     |MUXF7    |     3|
+|10    |RAMB18E1 |     1|
+|11    |SRL16E   |    21|
+|12    |SRLC16E  |     2|
+|13    |SRLC32E  |    17|
+|14    |FDRE     |  1318|
+|15    |FDSE     |    10|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:42 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2154.562 ; gain = 1280.141
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2154.562 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 87 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2167.293 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 61 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 52 instances
+  CFGLUT5 => SRLC32E: 9 instances
+
+Synth Design complete | Checksum: febf3d27
+INFO: [Common 17-83] Releasing license: Vivado_Synthesis
+259 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 2167.293 ; gain = 1519.281
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2167.293 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/vlsi_design_ila_0_0.dcp' has been generated.
+INFO: [Ipptcl 7-1612] Added synthesis output to IP cache for IP vlsi_design_ila_0_0, cache-ID = 80cb15cce2c83943
+INFO: [Coretcl 2-1174] Renamed 124 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2167.293 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/QUANTA_VLSI/success_test_1/success_test_1.runs/vlsi_design_ila_0_0_synth_1/vlsi_design_ila_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file vlsi_design_ila_0_0_utilization_synth.rpt -pb vlsi_design_ila_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 19:19:09 2026...
+[Tue Oct 27 19:19:12 2026] vlsi_design_ila_0_0_synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:01:10 . Memory (MB): peak = 670.684 ; gain = 1.094
+ILA_SYNTH_STATUS: synth_design Complete!
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 19:19:12 2026...

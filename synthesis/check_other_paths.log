@@ -1,0 +1,89 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 20:35:47 2026
+# Process ID         : 6292
+# Current directory  : F:/QUANTA_2/synthesis
+# Command line       : vivado.exe -mode batch -notrace -source F:/QUANTA_2/synthesis/check_other_paths.tcl -log F:/QUANTA_2/synthesis/check_other_paths.log
+# Log file           : F:/QUANTA_2/synthesis/check_other_paths.log
+# Journal file       : F:/QUANTA_2/synthesis\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 8113 MB
+#-----------------------------------------------------------
+source F:/QUANTA_2/synthesis/check_other_paths.tcl -notrace
+Command: open_checkpoint E:/QUANTA_VLSI/success_test_1/success_test_1.runs/impl_1/vlsi_design_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 359.539 ; gain = 5.863
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.170 . Memory (MB): peak = 943.031 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8259 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 1081.543 ; gain = 4.887
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 1731.125 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1731.125 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1731.125 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.951 . Memory (MB): peak = 1796.988 ; gain = 65.863
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1796.988 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.438 . Memory (MB): peak = 1798.934 ; gain = 1.945
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1798.934 ; gain = 67.809
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1798.934 ; gain = 67.809
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1842.035 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 58 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 52 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:22 ; elapsed = 00:00:20 . Memory (MB): peak = 1846.074 ; gain = 1501.902
+=== TOP 15 VIOLATING PATHS ===
+get_timing_paths: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 1986.090 ; gain = 140.016
+FAILING_PATH: Slack=-4.898 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[31]/D
+FAILING_PATH: Slack=-4.850 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[29]/D
+FAILING_PATH: Slack=-4.824 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[27]/D
+FAILING_PATH: Slack=-4.814 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[28]/D
+FAILING_PATH: Slack=-4.753 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[30]/D
+FAILING_PATH: Slack=-4.747 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[24]/D
+FAILING_PATH: Slack=-4.695 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[23]/D
+FAILING_PATH: Slack=-4.692 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[25]/D
+FAILING_PATH: Slack=-4.663 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[17]/D
+FAILING_PATH: Slack=-4.604 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[20]/D
+FAILING_PATH: Slack=-4.597 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[19]/D
+FAILING_PATH: Slack=-4.594 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[26]/D
+FAILING_PATH: Slack=-4.559 From=vlsi_design_i/cnn_top_0/inst/u_conv2/in_rd_addr_reg[1]_replica_42/C To=vlsi_design_i/cnn_top_0/inst/u_conv2/acc_reg[21]/D
+FAILING_PATH: Slack=-4.528 From=vlsi_design_i/cnn_top_0/inst/u_conv1/in_rd_addr_reg[1]_rep__1/C To=vlsi_design_i/cnn_top_0/inst/u_conv1/acc_reg[31]/D
+FAILING_PATH: Slack=-4.507 From=vlsi_design_i/cnn_top_0/inst/u_fc/r_oc_reg[0]/C To=vlsi_design_i/cnn_top_0/inst/u_fc/acc_reg[28]/D
+=== CONV1 TIMING ===
+CONV1: Slack=-4.528 From=vlsi_design_i/cnn_top_0/inst/u_conv1/in_rd_addr_reg[1]_rep__1/C To=vlsi_design_i/cnn_top_0/inst/u_conv1/acc_reg[31]/D
+CONV1: Slack=-4.412 From=vlsi_design_i/cnn_top_0/inst/u_conv1/in_rd_addr_reg[1]_rep__1/C To=vlsi_design_i/cnn_top_0/inst/u_conv1/acc_reg[27]/D
+CONV1: Slack=-4.383 From=vlsi_design_i/cnn_top_0/inst/u_conv1/in_rd_addr_reg[1]_rep__1/C To=vlsi_design_i/cnn_top_0/inst/u_conv1/acc_reg[21]/D
+=== FC TIMING ===
+FC: Slack=-4.507 From=vlsi_design_i/cnn_top_0/inst/u_fc/r_oc_reg[0]/C To=vlsi_design_i/cnn_top_0/inst/u_fc/acc_reg[28]/D
+FC: Slack=-4.474 From=vlsi_design_i/cnn_top_0/inst/u_fc/r_oc_reg[0]/C To=vlsi_design_i/cnn_top_0/inst/u_fc/acc_reg[26]/D
+FC: Slack=-4.463 From=vlsi_design_i/cnn_top_0/inst/u_fc/r_oc_reg[0]/C To=vlsi_design_i/cnn_top_0/inst/u_fc/acc_reg[25]/D
+DONE_OTHER_PATHS
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 20:36:19 2026...

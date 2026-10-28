@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 22:20:28 2026
+# Process ID         : 41592
+# Current directory  : F:/QUANTA_2
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\check_dcp_timing.tcl
+# Log file           : F:/QUANTA_2/vivado.log
+# Journal file       : F:/QUANTA_2\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 6811 MB
+#-----------------------------------------------------------
+source {C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\check_dcp_timing.tcl} -notrace

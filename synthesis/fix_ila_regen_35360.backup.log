@@ -1,0 +1,97 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 19:05:20 2026
+# Process ID         : 35360
+# Current directory  : F:/QUANTA_2/synthesis
+# Command line       : vivado.exe -mode batch -notrace -source F:/QUANTA_2/synthesis/fix_ila_and_regen.tcl -log F:/QUANTA_2/synthesis/fix_ila_regen.log
+# Log file           : F:/QUANTA_2/synthesis/fix_ila_regen.log
+# Journal file       : F:/QUANTA_2/synthesis\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 10460 MB
+#-----------------------------------------------------------
+source F:/QUANTA_2/synthesis/fix_ila_and_regen.tcl -notrace
+INFO: Opening project E:/QUANTA_VLSI/success_test_1/success_test_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'vlsi_design_cnn_top_0_0' generated file not found 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.vhdl'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 654.250 ; gain = 309.637
+INFO: Refreshing IP repositories
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Reading block design file <E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/bd/vlsi_design/vlsi_design.bd>...
+Adding component instance block -- xilinx.com:ip:vio:3.0 - vio_0
+Adding component instance block -- xilinx.com:ip:ila:6.2 - ila_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_0: AMD recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+Adding component instance block -- xilinx.com:module_ref:cnn_top:1.0 - cnn_top_0
+Adding component instance block -- xilinx.com:module_ref:pixel_controller:1.0 - pixel_controller_0
+Successfully read diagram <vlsi_design> from block design file <E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/bd/vlsi_design/vlsi_design.bd>
+ILA cell       : /ila_0
+C_NUM_OF_PROBES: 16
+C_DATA_DEPTH   : 1024
+INFO: Net cnn_top_0_logit0_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit1_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit2_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit3_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit4_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit5_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit6_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit7_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit8_o has no ILA probe connection (already clean).
+INFO: Net cnn_top_0_logit9_o has no ILA probe connection (already clean).
+INFO: Net pixel_controller_0_image_active_o has no ILA probe connection (already clean).
+WARNING: [BD 41-1684] Pin /ila_0/probe5 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe6 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe7 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe8 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe9 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe10 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe11 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe12 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe13 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe14 is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /ila_0/probe15 is now disabled. All connections to this pin have been removed. 
+INFO: C_NUM_OF_PROBES set to 5.  Saving BD and regenerating IP ports...
+Wrote  : <E:\QUANTA_VLSI\success_test_1\success_test_1.srcs\sources_1\bd\vlsi_design\vlsi_design.bd> 
+Wrote  : <E:\QUANTA_VLSI\success_test_1\success_test_1.srcs\sources_1\bd\vlsi_design\vlsi_design.bd> 
+WARNING: [BD 41-3256] Drive strength cannot be preserved for ports connected to net clk_0_1 as it connected to debug IP /vio_0 
+Verilog Output written to : e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/synth/vlsi_design.v
+WARNING: [BD 41-3256] Drive strength cannot be preserved for ports connected to net clk_0_1 as it connected to debug IP /vio_0 
+Verilog Output written to : e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/sim/vlsi_design.v
+Verilog Output written to : e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/hdl/vlsi_design_wrapper.v
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/vlsi_design_ila_0_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ila_0 .
+Exporting to file e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/hw_handoff/vlsi_design.hwh
+Generated Hardware Definition File e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/synth/vlsi_design.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/vlsi_design.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/vlsi_design.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/vlsi_design_sv.sveo
+INFO: BD output products regenerated.
+INFO: Reconnecting probe0-4 to their signal nets...
+ERROR: [BD 41-701] connect_bd_net requires at least two pins/ports, or one pin/port and a net
+ERROR: [BD 5-4] Error: running connect_bd_net.
+ERROR: [Common 17-39] 'connect_bd_net' failed due to earlier errors.
+
+    while executing
+"connect_bd_net [get_bd_nets cnn_top_0_busy_o]       [get_bd_pins ila_0/probe0]"
+    (file "F:/QUANTA_2/synthesis/fix_ila_and_regen.tcl" line 111)
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 19:05:34 2026...

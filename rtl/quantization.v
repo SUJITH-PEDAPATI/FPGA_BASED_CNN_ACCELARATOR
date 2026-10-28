@@ -19,7 +19,7 @@ module quantization #(
 );
     localparam integer PROD_W = ACC_WIDTH + 18;
 
-    wire signed [PROD_W-1:0] product;
+    (* use_dsp = "yes" *) wire signed [PROD_W-1:0] product;
     wire signed [PROD_W-1:0] product_rounded;
     wire signed [PROD_W-1:0] shifted;
 

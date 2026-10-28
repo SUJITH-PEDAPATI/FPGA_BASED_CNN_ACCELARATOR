@@ -1,0 +1,59 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 23-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 21:37:45 2026
+# Process ID         : 17872
+# Current directory  : F:/QUANTA_2
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\list_files.tcl
+# Log file           : F:/QUANTA_2/vivado.log
+# Journal file       : F:/QUANTA_2\vivado.jou
+# Running On         : DESKTOP-RNBVV56
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16869 MB
+# Swap memory        : 25502 MB
+# Total Virtual      : 42371 MB
+# Available Virtual  : 5283 MB
+#-----------------------------------------------------------
+source {C:\Users\hp\.gemini\antigravity-ide\brain\a35a8978-3894-4d52-ae5c-5b7b80926e94\scratch\list_files.tcl} -notrace
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado_2026_1/2026.1/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 655.945 ; gain = 311.129
+=== FILES IN SUCCESS_TEST_1 ===
+F:/QUANTA_2/rtl/argmax.v
+F:/QUANTA_2/rtl/conv_layer.v
+F:/QUANTA_2/rtl/fully_connected.v
+F:/QUANTA_2/rtl/quantization.v
+F:/QUANTA_2/tb/cnn_top_vivado.v
+E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/new/pixel_controller.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_vio_0_0/sim/vlsi_design_vio_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_vio_0_0/vlsi_design_vio_0_0_stub.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_vio_0_0/synth/vlsi_design_vio_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/sim/vlsi_design_ila_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/vlsi_design_ila_0_0_stub.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_ila_0_0/synth/vlsi_design_ila_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/sim/vlsi_design_cnn_top_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_stub.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/vlsi_design_cnn_top_0_0_sim_netlist.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_cnn_top_0_0/synth/vlsi_design_cnn_top_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_pixel_controller_0_0/sim/vlsi_design_pixel_controller_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_pixel_controller_0_0/vlsi_design_pixel_controller_0_0_stub.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_pixel_controller_0_0/vlsi_design_pixel_controller_0_0_sim_netlist.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/ip/vlsi_design_pixel_controller_0_0/synth/vlsi_design_pixel_controller_0_0.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/synth/vlsi_design.v
+e:/QUANTA_VLSI/success_test_1/success_test_1.gen/sources_1/bd/vlsi_design/sim/vlsi_design.v
+E:/QUANTA_VLSI/success_test_1/success_test_1.srcs/sources_1/imports/hdl/vlsi_design_wrapper.v
+F:/QUANTA_2/rtl/maxpool.v
+F:/QUANTA_2/rtl/relu.v
+F:/QUANTA_2/tb/tb_vivado_mnist.v
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 21:37:54 2026...

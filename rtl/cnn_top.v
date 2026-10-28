@@ -13,7 +13,6 @@ module cnn_top (
     output reg        load_o,
     output reg  [9:0] pixel_idx_o,
     output reg        busy_o,
-    output reg        done_o,
     output wire [3:0]          prediction_o,
     output wire signed [31:0]  logit0_o, logit1_o, logit2_o, logit3_o, logit4_o,
     output wire signed [31:0]  logit5_o, logit6_o, logit7_o, logit8_o, logit9_o
@@ -27,14 +26,16 @@ module cnn_top (
     reg signed [7:0]  p2_act  [0:799];     // 32*5*5
     reg signed [31:0] logits  [0:9];
 
-    // FSM
-    localparam [3:0]
-        T_IDLE  = 4'd0, T_LOAD  = 4'd1,
-        T_CONV1 = 4'd2, T_POOL1 = 4'd3,
-        T_CONV2 = 4'd4, T_POOL2 = 4'd5,
-        T_FC    = 4'd6, T_ARGMAX= 4'd7,
-        T_DONE  = 4'd8;
-    reg [3:0] state;
+    // T_ARGMAX2 gives the 19 ns argmax carry chain a full clock to
+    // settle before pred_r is captured (timing fix for Timing 38-282).
+    localparam [4:0]
+        T_IDLE  = 5'd0, T_LOAD  = 5'd1,
+        T_CONV1 = 5'd2, T_POOL1 = 5'd3,
+        T_CONV2 = 5'd4, T_POOL2 = 5'd5,
+        T_FC    = 5'd6, T_ARGMAX= 5'd7,
+        T_ARGMAX2 = 5'd9,  // capture cycle
+        T_DONE  = 5'd8;
+    reg [4:0] state;
     reg [9:0] pix_cnt;
 
     // ---- Conv1 ----
@@ -121,6 +122,7 @@ module cnn_top (
     // ---- Argmax ----
     wire [3:0] pred_wire;
     argmax u_argmax (
+        .clk(clk),
         .logit0(logits[0]),.logit1(logits[1]),.logit2(logits[2]),
         .logit3(logits[3]),.logit4(logits[4]),.logit5(logits[5]),
         .logit6(logits[6]),.logit7(logits[7]),.logit8(logits[8]),
@@ -128,18 +130,18 @@ module cnn_top (
     );
     reg [3:0] pred_r;
     assign prediction_o = pred_r;
-    assign logit0_o=logits[0]; assign logit1_o=logits[1];
-    assign logit2_o=logits[2]; assign logit3_o=logits[3];
-    assign logit4_o=logits[4]; assign logit5_o=logits[5];
-    assign logit6_o=logits[6]; assign logit7_o=logits[7];
-    assign logit8_o=logits[8]; assign logit9_o=logits[9];
+    assign logit0_o = logits[0]; assign logit1_o = logits[1];
+    assign logit2_o = logits[2]; assign logit3_o = logits[3];
+    assign logit4_o = logits[4]; assign logit5_o = logits[5];
+    assign logit6_o = logits[6]; assign logit7_o = logits[7];
+    assign logit8_o = logits[8]; assign logit9_o = logits[9];
 
     // Pool temporaries
     integer pc, py, px;
     integer b0i, b1i, b2i, b3i, bmi;
 
     // Main FSM
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge clk) begin
         if (!rst_n) begin
             state       <= T_IDLE;
             done_o      <= 1'b0; busy_o <= 1'b0; load_o <= 1'b0;
@@ -221,7 +223,13 @@ module cnn_top (
 
             T_FC: if (fc_done) state <= T_ARGMAX;
 
+            // Cycle 1: logits_reg is stable; argmax chain settling.
             T_ARGMAX: begin
+                state <= T_ARGMAX2;
+            end
+
+            // Cycle 2: argmax has resolved. Capture result.
+            T_ARGMAX2: begin
                 pred_r <= pred_wire;
                 state  <= T_DONE;
             end

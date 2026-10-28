@@ -52,13 +52,20 @@ module tb_vivado_mnist;
         .pixel_idx_o  (pixel_idx_o),
         .busy_o       (busy_o),
         .done_o       (done_o),
-        .prediction_o (prediction_o),
-        .logit0_o     (logit0),  .logit1_o(logit1),
-        .logit2_o     (logit2),  .logit3_o(logit3),
-        .logit4_o     (logit4),  .logit5_o(logit5),
-        .logit6_o     (logit6),  .logit7_o(logit7),
-        .logit8_o     (logit8),  .logit9_o(logit9)
+        .prediction_o (prediction_o)
     );
+
+    // Sample internal logits hierarchically (logit ports removed from cnn_top interface)
+    assign logit0 = dut.logits[0];
+    assign logit1 = dut.logits[1];
+    assign logit2 = dut.logits[2];
+    assign logit3 = dut.logits[3];
+    assign logit4 = dut.logits[4];
+    assign logit5 = dut.logits[5];
+    assign logit6 = dut.logits[6];
+    assign logit7 = dut.logits[7];
+    assign logit8 = dut.logits[8];
+    assign logit9 = dut.logits[9];
 
     // Clock: 10 ns period, 100 MHz
     initial clk = 1'b0;
