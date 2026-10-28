@@ -88,7 +88,7 @@ module tb_vivado_mnist;
 
         // Load the MNIST image from the rtl_desktop test folder
         // ABSOLUTE PATH -- update if folder moves
-        $readmemh("F:/QUANTA_2/rtl_desktop/test/image_input.mem", img);
+        $readmemh("E:/FGPA_BASED_CNN_ACCELERATOR_43_09/FPGA_BASED_CNN_ACCELARATOR-main/rtl_desktop/test/image_input.mem", img);
 
         // ====================================================================
         // DIAGNOSTICS: Check image pixels and DUT weight/bias memory loading
