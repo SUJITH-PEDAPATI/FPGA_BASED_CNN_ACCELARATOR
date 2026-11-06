@@ -1,0 +1,44 @@
+{
+  "test_environment": "testfor9",
+  "dataset": "MNIST Test Set",
+  "sample_index": 7,
+  "ground_truth_digit": 9,
+  "simulation_results": {
+    "vivado_xsim": {
+      "status": "PASS",
+      "predicted_digit": 9,
+      "exact_match": true,
+      "clock_cycles_compute": 709841,
+      "clock_cycles_total": 710625,
+      "sim_time_ns": 7106455.0,
+      "logits": [-57, -30, -19, -11, 3, -9, -65, -24, -1, 24],
+      "top_class": 9,
+      "top_logit": 24,
+      "runner_up_class": 4,
+      "runner_up_logit": 3,
+      "margin": 21
+    },
+    "iverilog_mnist": {
+      "status": "PASS",
+      "predicted_digit": 9,
+      "exact_match": true,
+      "clock_cycles_compute": 709841,
+      "logits": [-57, -30, -19, -11, 3, -9, -65, -24, -1, 24]
+    },
+    "iverilog_system": {
+      "status": "PASS",
+      "predicted_digit": 9,
+      "exact_match": true,
+      "clock_cycles_compute": 709841,
+      "logits": [-57, -30, -19, -11, 3, -9, -65, -24, -1, 24]
+    },
+    "python_rtl_emulator": {
+      "predicted_digit": 9,
+      "logits": [-57, -30, -19, -11, 3, -9, -65, -24, -1, 24]
+    }
+  },
+  "bit_exact_agreement": true,
+  "test_vector": "F:/QUANTA_2/testfor9/test/image_input_9.mem",
+  "parameter_directory": "F:/QUANTA_2/testfor9/parameters"
+}
+

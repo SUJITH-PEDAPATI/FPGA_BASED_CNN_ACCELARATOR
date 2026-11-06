@@ -1,0 +1,35 @@
+Time resolution is 1 ps
+=== QUANTA_2 Vivado Behavioral Simulation ===
+    Testbench: tb_vivado_mnist.v
+    Image:     test/image_input.mem  (MNIST index=7, label=9)
+
+Image loaded. img[0]=0x00  img[391]=0x00  img[783]=0x00
+Reset released at 55000 ns.
+Starting inference at 95000 ns...
+All 784 pixels fed.  Waiting for done_o...
+
+=== Inference complete at 7106355000 ns ===
+    Clock cycles after pixel feed: 709841
+
+=== RTL Output Logits ===
+  logit[0] =  -57  (digit 0)
+  logit[1] =  -30  (digit 1)
+  logit[2] =  -19  (digit 2)
+  logit[3] =  -11  (digit 3)
+  logit[4] =    3  (digit 4)
+  logit[5] =   -9  (digit 5)
+  logit[6] =  -65  (digit 6)
+  logit[7] =  -24  (digit 7)
+  logit[8] =   -1  (digit 8)
+  logit[9] =   24  (digit 9)
+
+RTL predicted digit : 9
+Ground truth label  : 9
+
+RESULT: CORRECT  -- prediction matches ground truth label 9
+
+=== Expected (Python RTL emulator) ===
+  logits = [-57, -30, -19, -11, 3, -9, -65, -24, -1, 24]
+  pred   = 9
+EMULATOR CHECK: ALL 10 LOGITS MATCH -- bit-exact agreement.
+$finish called at time : 7106455 ns : File "F:/QUANTA_2/testfor9/vivado_project/simulation/testbenches/tb_vivado_mnist.v" Line 203

@@ -1,0 +1,5 @@
+Workload,Target,Clock_Frequency,Operations,Latency_Mean_ms,Latency_Median_ms,Latency_Min_ms,Latency_Max_ms,Latency_Std_ms,Clock_Cycles,Throughput_FPS,Throughput_GOPS,Power_Total_W,Efficiency_GOPS_per_W
+Conv1_Layer,CPU_Float32,2.2 GHz,194688,0.2283,0.2258,0.1985,0.9952,0.0399,"502,325",4181.29,0.8527,N/A,N/A
+Conv1_Layer,FPGA_Hardware,100.0 MHz,194688,1.1898,1.1898,1.1898,1.1898,0.0000,118976,840.51,0.1636,0.172,0.9514
+Full_CNN,CPU_Float32,2.2 GHz,1325824,2.1544,2.0304,1.9080,8.8986,0.6761,"4,739,760",482.31,0.6154,N/A,N/A
+Full_CNN,FPGA_Hardware,100.0 MHz,1325824,7.1062,7.1062,7.1062,7.1062,0.0000,710625,140.72,0.1866,0.172,1.0847

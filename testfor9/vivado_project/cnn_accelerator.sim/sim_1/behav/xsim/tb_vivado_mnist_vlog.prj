@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef" \
+"../../../../sources/hdl/argmax.v" \
+"../../../../sources/hdl/cnn_top_vivado.v" \
+"../../../../sources/hdl/conv_layer.v" \
+"../../../../sources/hdl/fully_connected.v" \
+"../../../../sources/hdl/quantization.v" \
+"../../../../simulation/testbenches/tb_vivado_mnist.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

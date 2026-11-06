@@ -3,7 +3,7 @@
 `default_nettype none
 
 module pixel_controller #(
-    parameter IMAGE_FILE = "image_input.mem"
+    parameter IMAGE_FILE = "F:/QUANTA_2/test/image_input_3.mem"
 )(
     input  wire       clk,
     input  wire       rst_n,
@@ -56,6 +56,10 @@ module pixel_controller #(
                 cnn_start_o    <= 1'b1;
                 start_pending  <= 1'b0;
                 image_active_o <= 1'b1;
+            end else if (cnn_start_o) begin
+                // Advance to pixel 1 immediately on the cycle following cnn_start_o,
+                // so pixel 1 is ready at pixel_o when cnn_top enters T_LOAD (fixes 1-pixel shift).
+                pixel_index    <= 10'd1;
             end else if (image_active_o && cnn_load_i) begin
                 if (pixel_index < LAST_PIXEL)
                     pixel_index <= pixel_index + 10'd1;

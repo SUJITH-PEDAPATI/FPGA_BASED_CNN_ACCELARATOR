@@ -1,0 +1,9 @@
+VCD info: dumpfile F:/QUANTA_2/testfor0/success_test_for_digit_0/waveforms/tb_system_digit0.vcd opened for output.
+=== System Testbench: Digit 0 (image_input_0.mem) ===
+Triggering start_request_i pulse...
+=== System Inference Complete ===
+Cycles elapsed: 710626
+Prediction: 0
+Ground Truth: 0
+SYSTEM TEST RESULT: PASS (Prediction matches Digit 0)
+F:/QUANTA_2/testfor0/vivado_project/simulation/testbenches/tb_system_digit0.v:97: $finish called at 7106525000 (1ps)

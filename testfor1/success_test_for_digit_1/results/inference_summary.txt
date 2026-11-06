@@ -1,0 +1,82 @@
+=== CNN ACCELERATOR HARDWARE INFERENCE TEST RESULTS FOR DIGIT 1 ===
+Date: 2026-11-05
+Project: F:/QUANTA_2/testfor1/vivado_project/cnn_accelerator_digit1.xpr
+Target Device: Digilent ZedBoard (xc7z020clg484-1)
+Target Clock: 100.0 MHz (Period: 10.000 ns)
+
+--- 1. INPUT SAMPLE & GROUND TRUTH ---
+Image File: F:/QUANTA_2/testfor1/test/image_input_1.mem (784 bytes)
+Dataset Index: MNIST Test Sample Index 2
+Ground-Truth Label: 1
+
+--- 2. LOGITS & PREDICTION (BIT-EXACT HARDWARE MATCH) ---
+Python RTL Emulator Logits: [-14, 31, -8, -20, 1, -26, -12, 0, -8, -26]
+Python RTL Emulator Pred  : 1
+
+Verilog Simulation Logits :
+  logit[0] = -14
+  logit[1] =  31 (MAXIMUM -> Predicted Class 1)
+  logit[2] =  -8
+  logit[3] = -20
+  logit[4] =   1
+  logit[5] = -26
+  logit[6] = -12
+  logit[7] =   0
+  logit[8] =  -8
+  logit[9] = -26
+Verilog RTL Prediction    : 1
+Result Status             : PASS (Bit-Exact Agreement across all 10 logits)
+
+--- 3. SYSTEM SIMULATION LATENCY ---
+Testbench: tb_system_digit1.v
+Pipeline: pixel_controller -> cnn_top
+Clock Frequency: 100 MHz
+Inference Clock Cycles: 710,626 cycles
+Execution Time: 7.106 ms
+System Test Result: PASS
+
+--- 4. POST-ROUTE TIMING CLOSURE SUMMARY ---
+Implementation Strategy: Performance_ExplorePostRoutePhysOpt
+Target Frequency: 100.0 MHz (10.000 ns)
+Worst Negative Slack (WNS) : +0.006 ns (MET)
+Total Negative Slack (TNS) :  0.000 ns (MET)
+Worst Hold Slack (WHS)     : +0.027 ns (MET)
+Total Hold Slack (THS)     :  0.000 ns (MET)
+Worst Pulse Width Slack    : +3.750 ns (MET)
+Total Pulse Width Slack    :  0.000 ns (MET)
+Failing Setup Endpoints    :  0 / 23,892
+Failing Hold Endpoints     :  0 / 23,876
+Unconstrained Endpoints    :  0
+Timing Status              : PASSED (100% Timing Closure Met)
+
+--- 5. RESOURCE UTILIZATION ---
+Slice LUTs     : 6,383 / 53,200 (12.00%)
+  LUT as Logic : 5,706 / 53,200 (10.73%)
+  LUT as Memory:   677 / 17,400 ( 3.89%)
+Slice FFs      : 9,227 / 106,400 (8.67%)
+Block RAM      : 20.5 / 140 (14.64%)
+  RAMB36E1     : 18 / 140 (12.86%)
+  RAMB18E1     : 5 / 280 (1.79%)
+DSP48E1        : 11 / 220 (5.00%)
+Bonded IOB     : 1 / 200 (0.50%) (clk pin Y9)
+BUFG           : 8 / 32 (25.00%)
+BSCANE2 (Debug): 1 / 4 (25.00%)
+
+--- 6. HARDWARE DEPLOYMENT ARTIFACTS ---
+Bitstream:
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/bitstreams/vlsi_design_wrapper.bit
+  - F:/QUANTA_2/testfor1/impl_1/vlsi_design_wrapper.bit
+  - F:/QUANTA_2/testfor1/vivado_project/vlsi_design_wrapper.bit
+Debug Probes:
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/bitstreams/vlsi_design_wrapper.ltx
+  - F:/QUANTA_2/testfor1/impl_1/vlsi_design_wrapper.ltx
+  - F:/QUANTA_2/testfor1/vivado_project/vlsi_design_wrapper.ltx
+Routed Checkpoint:
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/checkpoints/vlsi_design_wrapper_routed.dcp
+Waveforms:
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/waveforms/tb_vivado_mnist_digit1.vcd
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/waveforms/tb_system_digit1.vcd
+Logs:
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/simulation_logs/tb_vivado_mnist_simulation.log
+  - F:/QUANTA_2/testfor1/success_test_for_digit_1/simulation_logs/tb_system_digit1_simulation.log
+

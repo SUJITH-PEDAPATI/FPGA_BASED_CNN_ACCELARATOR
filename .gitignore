@@ -1,1 +1,32 @@
+# Simulation outputs & Waveforms (>100MB exceeds GitHub hard limit)
 sim/
+*.vcd
+*.vvp
+
+# Vivado temporary runs, auto-generated products & caches
+.Xil/
+**/.Xil/
+**/.jobs/
+**/synth_1/
+**/impl_1/
+**/*_synth_1/
+**/*.cache/
+**/*.hw/
+**/*.ip_user_files/
+**/*.gen/
+
+# Vivado logs & journals
+vivado*.log
+vivado*.jou
+*.backup.*
+**/*.backup.*
+**/*.backup.log
+**/*.backup.jou
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local helper scripts
+copy_testfor8_assets.ps1
+create_testfor8_dirs.ps1

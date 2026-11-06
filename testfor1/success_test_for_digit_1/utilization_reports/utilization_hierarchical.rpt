@@ -1,0 +1,78 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Thu Nov  5 03:44:44 2026
+| Host         : DESKTOP-RNBVV56 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file F:/QUANTA_2/testfor1/success_test_for_digit_1/utilization_reports/utilization_hierarchical.rpt
+| Design       : vlsi_design_wrapper
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Physopt postRoute
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                        Instance                       |                        Module                        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| vlsi_design_wrapper                                   |                                                (top) |       6383 |       5706 |     584 |   93 | 9227 |     18 |      5 |         11 |
+|   (vlsi_design_wrapper)                               |                                                (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   dbg_hub                                             |                                              dbg_hub |        473 |        449 |      24 |    0 |  753 |      0 |      0 |          0 |
+|     inst                                              |                           dbg_hub_xsdbm_v3_0_6_xsdbm |        473 |        449 |      24 |    0 |  753 |      0 |      0 |          0 |
+|       BSCANID.u_xsdbm_id                              |                        dbg_hub_xsdbm_v3_0_6_xsdbm_id |        473 |        449 |      24 |    0 |  753 |      0 |      0 |          0 |
+|         SWITCH_N_EXT_BSCAN.bscan_switch               |                    dbg_hub_xsdbm_v3_0_6_bscan_switch |        124 |        124 |       0 |    0 |  125 |      0 |      0 |          0 |
+|         CORE_XSDB.UUT_MASTER                          |                       dbg_hub_xsdbm_v3_0_6_icon2xsdb |        297 |        273 |      24 |    0 |  566 |      0 |      0 |          0 |
+|           U_ICON_INTERFACE                            |                              dbg_hub_xsdbm_v3_0_6_if |        165 |        141 |      24 |    0 |  456 |      0 |      0 |          0 |
+|             U_CMD6_WR                                 |                           dbg_hub_xsdbm_v3_0_6_wrreg |         45 |         33 |      12 |    0 |  110 |      0 |      0 |          0 |
+|               U_WR_FIFO                               |                          dbg_hub_xsdbm_v3_0_6_wrfifo |         43 |         31 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                 SUBCORE_FIFO.xsdbm_v3_0_6_wrfifo_inst |                       dbg_hub_fifo_generator_v13_1_6 |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                   inst_fifo_gen                       |                 dbg_hub_fifo_generator_v13_1_6_synth |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                     gconvfifo.rf                      |                           dbg_hub_fifo_generator_top |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                       grf.rf                          |                       dbg_hub_fifo_generator_ramfifo |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|             U_CMD4                                    |         dbg_hub_xsdbm_v3_0_6_ctl_reg__parameterized0 |         12 |         12 |       0 |    0 |   62 |      0 |      0 |          0 |
+|             U_CMD6_RD                                 |                           dbg_hub_xsdbm_v3_0_6_rdreg |         69 |         57 |      12 |    0 |  134 |      0 |      0 |          0 |
+|               U_RD_FIFO                               |                          dbg_hub_xsdbm_v3_0_6_rdfifo |         67 |         55 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                 SUBCORE_FIFO.xsdbm_v3_0_6_rdfifo_inst |       dbg_hub_fifo_generator_v13_1_6__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                   inst_fifo_gen                       | dbg_hub_fifo_generator_v13_1_6_synth__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                     gconvfifo.rf                      |           dbg_hub_fifo_generator_top__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                       grf.rf                          |       dbg_hub_fifo_generator_ramfifo__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|           U_XSDB_BUS_CONTROLLER                       |                         dbg_hub_xsdbm_v3_0_6_bus_ctl |         84 |         84 |       0 |    0 |   54 |      0 |      0 |          0 |
+|   vlsi_design_i                                       |                                          vlsi_design |       5910 |       5257 |     560 |   93 | 8474 |     18 |      5 |         11 |
+|     cnn_top_0                                         |                              vlsi_design_cnn_top_0_0 |       4920 |       4360 |     560 |    0 | 6944 |     18 |      4 |         11 |
+|       inst                                            |                      vlsi_design_cnn_top_0_0_cnn_top |       4920 |       4360 |     560 |    0 | 6944 |     18 |      4 |         11 |
+|         (inst)                                        |                      vlsi_design_cnn_top_0_0_cnn_top |       3146 |       2586 |     560 |    0 | 6603 |     16 |      4 |          0 |
+|         u_argmax                                      |                       vlsi_design_cnn_top_0_0_argmax |        309 |        309 |       0 |    0 |   71 |      0 |      0 |          0 |
+|         u_conv1                                       |                   vlsi_design_cnn_top_0_0_conv_layer |        327 |        327 |       0 |    0 |  108 |      0 |      0 |          4 |
+|           (u_conv1)                                   |                   vlsi_design_cnn_top_0_0_conv_layer |        231 |        231 |       0 |    0 |  108 |      0 |      0 |          2 |
+|           u_quant                                     |                 vlsi_design_cnn_top_0_0_quantization |         96 |         96 |       0 |    0 |    0 |      0 |      0 |          2 |
+|         u_conv2                                       |   vlsi_design_cnn_top_0_0_conv_layer__parameterized0 |       1028 |       1028 |       0 |    0 |  101 |      0 |      0 |          3 |
+|           (u_conv2)                                   |   vlsi_design_cnn_top_0_0_conv_layer__parameterized0 |        929 |        929 |       0 |    0 |   99 |      0 |      0 |          1 |
+|           u_quant                                     | vlsi_design_cnn_top_0_0_quantization__parameterized0 |         99 |         99 |       0 |    0 |    2 |      0 |      0 |          2 |
+|         u_fc                                          |              vlsi_design_cnn_top_0_0_fully_connected |        110 |        110 |       0 |    0 |   61 |      2 |      0 |          4 |
+|     ila_0                                             |                                  vlsi_design_ila_0_0 |        759 |        666 |       0 |   93 | 1282 |      0 |      1 |          0 |
+|       inst                                            |                  vlsi_design_ila_0_0_ila_v6_2_20_ila |        759 |        666 |       0 |   93 | 1282 |      0 |      1 |          0 |
+|         ila_core_inst                                 |             vlsi_design_ila_0_0_ila_v6_2_20_ila_core |        758 |        665 |       0 |   93 | 1276 |      0 |      1 |          0 |
+|           (ila_core_inst)                             |             vlsi_design_ila_0_0_ila_v6_2_20_ila_core |          9 |          0 |       0 |    9 |   60 |      0 |      0 |          0 |
+|           u_ila_cap_ctrl                              |  vlsi_design_ila_0_0_ila_v6_2_20_ila_cap_ctrl_legacy |         78 |         31 |       0 |   47 |  127 |      0 |      0 |          0 |
+|             u_cap_addrgen                             |      vlsi_design_ila_0_0_ila_v6_2_20_ila_cap_addrgen |         63 |         26 |       0 |   37 |  121 |      0 |      0 |          0 |
+|               (u_cap_addrgen)                         |      vlsi_design_ila_0_0_ila_v6_2_20_ila_cap_addrgen |          1 |          0 |       0 |    1 |   68 |      0 |      0 |          0 |
+|           u_ila_regs                                  |         vlsi_design_ila_0_0_ila_v6_2_20_ila_register |        583 |        582 |       0 |    1 |  964 |      0 |      0 |          0 |
+|             (u_ila_regs)                              |         vlsi_design_ila_0_0_ila_v6_2_20_ila_register |        276 |        275 |       0 |    1 |  160 |      0 |      0 |          0 |
+|             U_XSDB_SLAVE                              |               vlsi_design_ila_0_0_xsdbs_v1_0_6_xsdbs |         76 |         76 |       0 |    0 |  213 |      0 |      0 |          0 |
+|           u_trig                                      |          vlsi_design_ila_0_0_ila_v6_2_20_ila_trigger |         44 |         10 |       0 |   34 |   52 |      0 |      0 |          0 |
+|     pixel_controller_0                                |                     vlsi_design_pixel_controller_0_0 |        132 |        132 |       0 |    0 |   14 |      0 |      0 |          0 |
+|       inst                                            |    vlsi_design_pixel_controller_0_0_pixel_controller |        132 |        132 |       0 |    0 |   14 |      0 |      0 |          0 |
+|     vio_0                                             |                                  vlsi_design_vio_0_0 |        100 |        100 |       0 |    0 |  234 |      0 |      0 |          0 |
+|       inst                                            |                  vlsi_design_vio_0_0_vio_v3_0_28_vio |        100 |        100 |       0 |    0 |  234 |      0 |      0 |          0 |
+|         U_XSDB_SLAVE                                  |               vlsi_design_vio_0_0_xsdbs_v1_0_6_xsdbs |         77 |         77 |       0 |    0 |  161 |      0 |      0 |          0 |
++-------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

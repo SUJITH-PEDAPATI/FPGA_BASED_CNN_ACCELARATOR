@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_vivado_mnist_behav/xsimk.exe -simmode gui -wdb tb_vivado_mnist_behav.wdb -simrunnum 0 -socket 21684
+Design successfully loaded
+Design Loading Memory Usage: 19136 KB (Peak: 19136 KB)
+Design Loading CPU Usage: 77 ms
+Simulation completed
+Simulation Memory Usage: 27900 KB (Peak: 27900 KB)
+Simulation CPU Usage: 890 ms

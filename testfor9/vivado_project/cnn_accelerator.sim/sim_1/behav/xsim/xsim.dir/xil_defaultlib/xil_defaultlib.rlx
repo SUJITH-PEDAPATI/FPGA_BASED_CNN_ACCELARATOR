@@ -1,0 +1,11 @@
+0.7
+2020.2
+Jun 16 2026
+11:10:11
+F:/QUANTA_2/testfor9/vivado_project/cnn_accelerator.sim/sim_1/behav/xsim/glbl.v,1773749341,verilog,,,,glbl,,,,,,,,
+F:/QUANTA_2/testfor9/vivado_project/simulation/testbenches/tb_vivado_mnist.v,1793819962,verilog,,,,tb_vivado_mnist,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,
+F:/QUANTA_2/testfor9/vivado_project/sources/hdl/argmax.v,1793115044,verilog,,F:/QUANTA_2/testfor9/vivado_project/sources/hdl/cnn_top_vivado.v,,argmax,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,
+F:/QUANTA_2/testfor9/vivado_project/sources/hdl/cnn_top_vivado.v,1793819589,verilog,,F:/QUANTA_2/testfor9/vivado_project/sources/hdl/conv_layer.v,,cnn_top,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,
+F:/QUANTA_2/testfor9/vivado_project/sources/hdl/conv_layer.v,1793117307,verilog,,F:/QUANTA_2/testfor9/vivado_project/sources/hdl/fully_connected.v,,conv_layer,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,
+F:/QUANTA_2/testfor9/vivado_project/sources/hdl/fully_connected.v,1793117359,verilog,,F:/QUANTA_2/testfor9/vivado_project/sources/hdl/quantization.v,,fully_connected,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,
+F:/QUANTA_2/testfor9/vivado_project/sources/hdl/quantization.v,1793117347,verilog,,F:/QUANTA_2/testfor9/vivado_project/simulation/testbenches/tb_vivado_mnist.v,,quantization,,,E:/vivado_2026_1/2026.1/Vivado/data/rsb/busdef,,,,,

@@ -1,0 +1,35 @@
+{
+  "test_environment": "testfor8",
+  "digit": 8,
+  "mnist_index": 61,
+  "ground_truth_label": 8,
+  "predicted_label": 8,
+  "match": true,
+  "simulation_results": {
+    "testbench": "tb_vivado_mnist.v",
+    "compute_latency_cycles": 709841,
+    "total_elapsed_cycles": 710625,
+    "clock_period_ns": 10.0,
+    "clock_frequency_mhz": 100.0,
+    "status": "PASS",
+    "bit_exact_match": true,
+    "logits": {
+      "logit_0": -31,
+      "logit_1": -71,
+      "logit_2": -12,
+      "logit_3": -15,
+      "logit_4": -44,
+      "logit_5": -16,
+      "logit_6": -46,
+      "logit_7": -44,
+      "logit_8": 13,
+      "logit_9": -11
+    },
+    "expected_logits": [-31, -71, -12, -15, -44, -16, -46, -44, 13, -11]
+  },
+  "waveforms": [
+    "F:/QUANTA_2/testfor8/success_test_for_digit_8/waveforms/tb_vivado_mnist_digit8.vcd",
+    "F:/QUANTA_2/testfor8/success_test_for_digit_8/waveforms/tb_system_digit8.vcd"
+  ]
+}
+

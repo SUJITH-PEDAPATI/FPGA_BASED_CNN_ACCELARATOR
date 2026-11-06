@@ -1,0 +1,416 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xBB49FA3234AD1C0F",
+      "device": "xc7z020clg484-1",
+      "gen_directory": "../../../../cnn_accelerator.gen/sources_1/bd/vlsi_design",
+      "name": "vlsi_design",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2026.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "vio_0": "",
+      "ila_0": "",
+      "cnn_top_0": "",
+      "pixel_controller_0": ""
+    },
+    "ports": {
+      "clk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "vlsi_design_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "ip_revision": "28",
+        "xci_name": "vlsi_design_vio_0_0",
+        "xci_path": "ip\\vlsi_design_vio_0_0\\vlsi_design_vio_0_0.xci",
+        "inst_hier_path": "vio_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "C_NUM_PROBE_IN": {
+            "value": "0"
+          },
+          "C_NUM_PROBE_OUT": {
+            "value": "2"
+          }
+        }
+      },
+      "ila_0": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "20",
+        "xci_name": "vlsi_design_ila_0_0",
+        "xci_path": "ip\\vlsi_design_ila_0_0\\vlsi_design_ila_0_0.xci",
+        "inst_hier_path": "ila_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "1024"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "5"
+          },
+          "C_PROBE0_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE10_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE11_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE12_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE13_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE14_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE15_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE1_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE2_WIDTH": {
+            "value": "4"
+          },
+          "C_PROBE3_WIDTH": {
+            "value": "10"
+          },
+          "C_PROBE4_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE5_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE7_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE8_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE9_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "cnn_top_0": {
+        "vlnv": "xilinx.com:module_ref:cnn_top:1.0",
+        "ip_revision": "1",
+        "xci_name": "vlsi_design_cnn_top_0_0",
+        "xci_path": "ip\\vlsi_design_cnn_top_0_0\\vlsi_design_cnn_top_0_0.xci",
+        "inst_hier_path": "cnn_top_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "cnn_top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "vlsi_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "start_i": {
+            "direction": "I"
+          },
+          "pixel_i": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "load_o": {
+            "direction": "O"
+          },
+          "pixel_idx_o": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "busy_o": {
+            "direction": "O"
+          },
+          "done_o": {
+            "direction": "O"
+          },
+          "prediction_o": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "logit0_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit1_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit2_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit3_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit4_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit5_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit6_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit7_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit8_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "logit9_o": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "pixel_controller_0": {
+        "vlnv": "xilinx.com:module_ref:pixel_controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "vlsi_design_pixel_controller_0_0",
+        "xci_path": "ip\\vlsi_design_pixel_controller_0_0\\vlsi_design_pixel_controller_0_0.xci",
+        "inst_hier_path": "pixel_controller_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pixel_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "vlsi_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "start_request_i": {
+            "direction": "I"
+          },
+          "cnn_start_o": {
+            "direction": "O"
+          },
+          "pixel_o": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "cnn_load_i": {
+            "direction": "I"
+          },
+          "image_active_o": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "vio_0/clk",
+          "ila_0/clk",
+          "pixel_controller_0/clk",
+          "cnn_top_0/clk"
+        ]
+      },
+      "cnn_top_0_busy_o": {
+        "ports": [
+          "cnn_top_0/busy_o",
+          "ila_0/probe0"
+        ]
+      },
+      "cnn_top_0_done_o": {
+        "ports": [
+          "cnn_top_0/done_o",
+          "ila_0/probe1"
+        ]
+      },
+      "cnn_top_0_load_o": {
+        "ports": [
+          "cnn_top_0/load_o",
+          "ila_0/probe4",
+          "pixel_controller_0/cnn_load_i"
+        ]
+      },
+      "cnn_top_0_logit0_o": {
+        "ports": [
+          "cnn_top_0/logit0_o"
+        ]
+      },
+      "cnn_top_0_logit1_o": {
+        "ports": [
+          "cnn_top_0/logit1_o"
+        ]
+      },
+      "cnn_top_0_logit2_o": {
+        "ports": [
+          "cnn_top_0/logit2_o"
+        ]
+      },
+      "cnn_top_0_logit3_o": {
+        "ports": [
+          "cnn_top_0/logit3_o"
+        ]
+      },
+      "cnn_top_0_logit4_o": {
+        "ports": [
+          "cnn_top_0/logit4_o"
+        ]
+      },
+      "cnn_top_0_logit5_o": {
+        "ports": [
+          "cnn_top_0/logit5_o"
+        ]
+      },
+      "cnn_top_0_logit6_o": {
+        "ports": [
+          "cnn_top_0/logit6_o"
+        ]
+      },
+      "cnn_top_0_logit7_o": {
+        "ports": [
+          "cnn_top_0/logit7_o"
+        ]
+      },
+      "cnn_top_0_logit8_o": {
+        "ports": [
+          "cnn_top_0/logit8_o"
+        ]
+      },
+      "cnn_top_0_logit9_o": {
+        "ports": [
+          "cnn_top_0/logit9_o"
+        ]
+      },
+      "cnn_top_0_pixel_idx_o": {
+        "ports": [
+          "cnn_top_0/pixel_idx_o",
+          "ila_0/probe3"
+        ]
+      },
+      "cnn_top_0_prediction_o": {
+        "ports": [
+          "cnn_top_0/prediction_o",
+          "ila_0/probe2"
+        ]
+      },
+      "pixel_controller_0_cnn_start_o": {
+        "ports": [
+          "pixel_controller_0/cnn_start_o",
+          "cnn_top_0/start_i"
+        ]
+      },
+      "pixel_controller_0_image_active_o": {
+        "ports": [
+          "pixel_controller_0/image_active_o"
+        ]
+      },
+      "pixel_controller_0_pixel_o": {
+        "ports": [
+          "pixel_controller_0/pixel_o",
+          "cnn_top_0/pixel_i"
+        ]
+      },
+      "vio_0_probe_out0": {
+        "ports": [
+          "vio_0/probe_out0",
+          "pixel_controller_0/start_request_i"
+        ]
+      },
+      "vio_0_probe_out1": {
+        "ports": [
+          "vio_0/probe_out1",
+          "pixel_controller_0/rst_n",
+          "cnn_top_0/rst_n"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+VCD info: dumpfile F:/QUANTA_2/testfor8/success_test_for_digit_8/waveforms/tb_vivado_mnist_digit8.vcd opened for output.
+=== QUANTA_2 Vivado Behavioral Simulation for Digit 8 ===
+    Testbench: tb_vivado_mnist.v
+    Image:     test/image_input_8.mem (MNIST index=61, label=8)
+
+Image loaded. img[0]=0x00  img[391]=0x00  img[783]=0x00
+Reset released at 55000 ns.
+Starting inference at 95000 ns...
+All 784 pixels fed. Waiting for done_o...
+
+=== Inference complete at 7106355000 ns ===
+    Clock cycles after pixel feed: 709841
+
+=== RTL Output Logits ===
+  logit[0] =  -31  (digit 0)
+  logit[1] =  -71  (digit 1)
+  logit[2] =  -12  (digit 2)
+  logit[3] =  -15  (digit 3)
+  logit[4] =  -44  (digit 4)
+  logit[5] =  -16  (digit 5)
+  logit[6] =  -46  (digit 6)
+  logit[7] =  -44  (digit 7)
+  logit[8] =   13  (digit 8)
+  logit[9] =  -11  (digit 9)
+
+RTL predicted digit : 8
+Ground truth label  : 8
+
+RESULT: CORRECT  -- prediction matches ground truth label 8
+
+=== Expected (Python RTL emulator) ===
+  logits = [-31, -71, -12, -15, -44, -16, -46, -44, 13, -11]
+  pred   = 8
+EMULATOR CHECK: ALL 10 LOGITS MATCH -- bit-exact agreement.
+F:/QUANTA_2/testfor8/vivado_project/simulation/testbenches/tb_vivado_mnist.v:151: $finish called at 7106455000 (1ps)
