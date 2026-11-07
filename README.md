@@ -257,69 +257,107 @@ This is a useful example-level functional check. It is not, by itself, a complet
 
 The ILA screenshots document several observed prediction-bus values while the pixel index is shown near the end of the 784-pixel input sequence (`0x30E`, decimal 782). The captures are included as debug evidence. Since the screenshots are individual snapshots, they should not be treated as a complete test-vector table or as proof that each displayed prediction corresponds to a known ground-truth label.
 
-## 🖼️ Project Gallery
+## 🖼️ Complete Project Image Gallery
 
-A quick visual tour of the implementation. Open each section to inspect the full set of screenshots.
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="README_assets/vivado/vivado_01_hardware_manager.png" alt="Vivado Hardware Manager" width="100%">
-      <br><strong>FPGA Bring-up</strong><br><sub>Vivado · Zynq-7000 · ILA</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="README_assets/genus/genus_01_synthesis_design_view.png" alt="Genus synthesis design" width="100%">
-      <br><strong>Logic Synthesis</strong><br><sub>Cadence Genus</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="README_assets/innovus/innovus_05_layout_view.png" alt="Innovus layout" width="100%">
-      <br><strong>Physical Design</strong><br><sub>Cadence Innovus</sub>
-    </td>
-  </tr>
-</table>
+**All 25 original project screenshots are displayed below, in sequence.**
+Nothing is hidden inside collapsed panels. Scroll through the complete Vivado, Genus and Innovus evidence.
 
 #### Vivado ILA and Hardware Manager screenshots
 
-<details>
-<summary><b>Open Vivado Hardware Manager and ILA screenshot gallery (15 images)</b></summary>
 
 **Hardware Manager / programmed device**
 
+**01 · Vivado Hardware Manager — programmed Zynq-7000 device**
+
 ![Vivado Hardware Manager](README_assets/vivado/vivado_01_hardware_manager.png)
+
+---
 
 **ILA capture sequence**
 
+**02 · ILA capture 02**
+
 ![ILA capture 2](README_assets/vivado/vivado_02_ila_capture.png)
+
+---
+
+**03 · ILA capture 03**
 
 ![ILA capture 3](README_assets/vivado/vivado_03_ila_capture.png)
 
+---
+
+**04 · ILA capture 04**
+
 ![ILA capture 4](README_assets/vivado/vivado_04_ila_capture.png)
+
+---
+
+**05 · ILA capture 05**
 
 ![ILA capture 5](README_assets/vivado/vivado_05_ila_capture.png)
 
+---
+
+**06 · ILA capture 06**
+
 ![ILA capture 6](README_assets/vivado/vivado_06_ila_capture.png)
+
+---
+
+**07 · ILA capture 07**
 
 ![ILA capture 7](README_assets/vivado/vivado_07_ila_capture.png)
 
+---
+
+**08 · ILA capture 08**
+
 ![ILA capture 8](README_assets/vivado/vivado_08_ila_capture.png)
+
+---
+
+**09 · ILA capture 09**
 
 ![ILA capture 9](README_assets/vivado/vivado_09_ila_capture.png)
 
+---
+
+**10 · ILA capture 10**
+
 ![ILA capture 10](README_assets/vivado/vivado_10_ila_capture.png)
+
+---
+
+**11 · ILA capture 11**
 
 ![ILA capture 11](README_assets/vivado/vivado_11_ila_capture.png)
 
+---
+
+**12 · ILA capture 12**
+
 ![ILA capture 12](README_assets/vivado/vivado_12_ila_capture.png)
+
+---
+
+**13 · ILA capture 13**
 
 ![ILA capture 13](README_assets/vivado/vivado_13_ila_capture.png)
 
+---
+
+**14 · ILA capture 14**
+
 ![ILA capture 14](README_assets/vivado/vivado_14_ila_capture.png)
+
+---
 
 **Additional ILA capture — prediction bus = 3**
 
-![ILA capture 15](README_assets/vivado/vivado_15_ila_capture_prediction_3.png)
+**15 · ILA capture — prediction bus = 3**
 
-</details>
+![ILA capture 15 — prediction bus = 3](README_assets/vivado/vivado_15_ila_capture_prediction_3.png)
 
 ---
 
@@ -356,30 +394,44 @@ The mapped-gates and gate-count reports show the cell composition and a total of
 
 #### Genus screenshots
 
-<details>
-<summary><b>Open Cadence Genus synthesis reports (5 images)</b></summary>
 
 **Synthesized design view**
 
+**16 · Genus synthesized design view**
+
 ![Genus synthesized design](README_assets/genus/genus_01_synthesis_design_view.png)
+
+---
 
 **Power details report**
 
+**17 · Genus power report**
+
 ![Genus power report](README_assets/genus/genus_02_power_report.png)
+
+---
 
 **Mapped gates report**
 
+**18 · Genus mapped-gates report**
+
 ![Genus mapped gates](README_assets/genus/genus_03_mapped_gates_report.png)
+
+---
 
 **Gate count report**
 
+**19 · Genus gate-count report**
+
 ![Genus gate count](README_assets/genus/genus_04_gate_count_report.png)
+
+---
 
 **Timing debug report**
 
-![Genus timing debug](README_assets/genus/genus_05_timing_debug_report.png)
+**20 · Genus timing-debug report**
 
-</details>
+![Genus timing debug report](README_assets/genus/genus_05_timing_debug_report.png)
 
 ### 7.2 Timing report
 
@@ -433,30 +485,44 @@ The screenshots show the design in the Innovus layout environment and a verifica
 
 #### Innovus screenshots
 
-<details>
-<summary><b>Open Cadence Innovus floorplan, layout and verification gallery (5 images)</b></summary>
 
 **Initial floorplan/layout view**
 
+**21 · Innovus initial floorplan**
+
 ![Innovus floorplan 1](README_assets/innovus/innovus_01_floorplan_view.png)
+
+---
 
 **Floorplan/layout view**
 
+**22 · Innovus floorplan view**
+
 ![Innovus floorplan 2](README_assets/innovus/innovus_02_floorplan_view.png)
+
+---
 
 **Updated floorplan/layout view**
 
+**23 · Innovus updated floorplan**
+
 ![Innovus floorplan 3](README_assets/innovus/innovus_03_floorplan_view.png)
+
+---
 
 **Connectivity and DRC verification log**
 
+**24 · Innovus connectivity and DRC log**
+
 ![Innovus connectivity and DRC log](README_assets/innovus/innovus_04_connectivity_and_drc_log.png)
+
+---
 
 **Later Innovus layout view**
 
-![Innovus layout view](README_assets/innovus/innovus_05_layout_view.png)
+**25 · Innovus layout view**
 
-</details>
+![Innovus layout view](README_assets/innovus/innovus_05_layout_view.png)
 
 ---
 
