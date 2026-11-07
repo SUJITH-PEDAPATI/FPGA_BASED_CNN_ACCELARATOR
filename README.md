@@ -1,31 +1,79 @@
-# FPGA-Based CNN Accelerator for Handwritten Digit Recognition
+<div align="center">
 
-A hardware-oriented Convolutional Neural Network (CNN) accelerator for handwritten-digit classification, developed in RTL and taken through FPGA implementation/debug using **AMD/Xilinx Vivado**, with a complementary standard-cell synthesis and physical-design exploration using **Cadence Genus and Innovus**.
+# ⚡ FPGA-Based CNN Accelerator
 
-> **Project status:** RTL simulation and Vivado bitstream generation are complete. The design has been programmed onto the target Zynq-7000 device and inspected using Vivado Hardware Manager with ILA/VIO debug cores. Cadence Genus synthesis reports and Innovus floorplan/verification snapshots are also included. The screenshots document the observed tool runs; they should not be interpreted as proof of a fully routed ASIC or a measured end-to-end accuracy benchmark.
+### Handwritten Digit Recognition | Verilog RTL | Zynq-7000 | ASIC Design Exploration
 
----
+<p>
+  <img src="https://img.shields.io/badge/RTL-Verilog-2563eb?style=for-the-badge&logo=verilog&logoColor=white" alt="Verilog">
+  <img src="https://img.shields.io/badge/FPGA-Zynq--7000-0f766e?style=for-the-badge" alt="Zynq 7000">
+  <img src="https://img.shields.io/badge/AMD-Xilinx%20Vivado-e11d48?style=for-the-badge" alt="Vivado">
+  <img src="https://img.shields.io/badge/Cadence-Genus%20%7C%20Innovus-7c3aed?style=for-the-badge" alt="Cadence">
+</p>
 
-## Contents
+**A hardware implementation of CNN inference, from RTL simulation to FPGA deployment, with an accompanying standard-cell synthesis and physical-design exploration.**
 
-- [1. Project overview](#1-project-overview)
-- [2. Objectives](#2-objectives)
-- [3. System architecture](#3-system-architecture)
-- [4. CNN inference flow](#4-cnn-inference-flow)
-- [5. Hardware implementation](#5-hardware-implementation)
-- [6. FPGA platform and debug](#6-fpga-platform-and-debug)
-- [7. Cadence synthesis and physical-design exploration](#7-cadence-synthesis-and-physical-design-exploration)
-- [8. Results captured so far](#8-results-captured-so-far)
-- [9. Repository structure](#9-repository-structure)
-- [10. Reproducing the Vivado flow](#10-reproducing-the-vivado-flow)
-- [11. Reproducing the Cadence flow](#11-reproducing-the-cadence-flow)
-- [12. Important implementation notes](#12-important-implementation-notes)
-- [13. Future improvements](#13-future-improvements)
-- [14. Acknowledgements](#14-acknowledgements)
+[Architecture](#-system-architecture) ·
+[FPGA Results](#-fpga-implementation) ·
+[ASIC Flow](#-asic-synthesis--physical-design) ·
+[Setup](#-getting-started) ·
+[Gallery](#-project-gallery)
 
----
+<br>
 
-## 1. Project overview
+<table>
+  <tr>
+    <td align="center"><strong>28 × 28</strong><br><sub>Input image</sub></td>
+    <td align="center"><strong>784</strong><br><sub>Pixel values</sub></td>
+    <td align="center"><strong>10</strong><br><sub>Output classes</sub></td>
+    <td align="center"><strong>100 MHz</strong><br><sub>Clock constraint</sub></td>
+  </tr>
+</table>
+
+</div>
+
+> [!IMPORTANT]
+> **Current status:** RTL simulation and Vivado bitstream generation are complete. The Zynq-7000 device was programmed and inspected through Hardware Manager using ILA/VIO. Genus synthesis reports and Innovus floorplan/verification snapshots are also documented. The available Innovus log still shows unassigned I/O warnings; this README does not claim completed ASIC sign-off.
+
+<div align="center">
+  <img src="README_assets/vivado/vivado_01_hardware_manager.png" alt="Vivado Hardware Manager showing the programmed Zynq-7000 device and ILA signals" width="96%">
+  <br>
+  <sub><em>FPGA bring-up: programmed device, Hardware Manager and internal-signal visibility.</em></sub>
+</div>
+
+
+
+## 🧭 Explore the Project
+
+| | | |
+|:---:|:---:|:---:|
+| [Overview](#-project-overview) | [Architecture](#-system-architecture) | [Inference](#-cnn-inference-pipeline) |
+| [FPGA](#-fpga-implementation) | [ILA / VIO](#-fpga-platform--on-chip-debug) | [Genus / Innovus](#-asic-synthesis--physical-design) |
+| [Results](#-results--evidence) | [Reproduce](#-getting-started-vivado) | [Future Work](#-future-improvements) |
+
+<details>
+<summary><strong>Full table of contents</strong></summary>
+
+- [Project Overview](#-project-overview)
+- [Project Objectives](#-project-objectives)
+- [System Architecture](#-system-architecture)
+- [CNN Inference Pipeline](#-cnn-inference-pipeline)
+- [FPGA Implementation](#-fpga-implementation)
+- [FPGA Platform & On-Chip Debug](#-fpga-platform--on-chip-debug)
+- [ASIC Synthesis & Physical Design](#-asic-synthesis--physical-design)
+- [Results & Evidence](#-results--evidence)
+- [Repository Structure](#-repository-structure)
+- [Getting Started: Vivado](#-getting-started-vivado)
+- [Getting Started: Cadence](#-getting-started-cadence)
+- [Engineering Notes](#-engineering-notes)
+- [Future Improvements](#-future-improvements)
+- [Acknowledgements](#-acknowledgements)
+
+</details>
+
+
+
+## ✨ Project Overview
 
 Convolutional Neural Networks are widely used for image classification, but running neural-network inference on a general-purpose processor can introduce latency and energy overhead. This project explores a dedicated digital hardware implementation of CNN inference.
 
@@ -33,7 +81,7 @@ The accelerator is designed to process a **28 × 28 grayscale handwritten-digit 
 
 The project also explores the ASIC implementation flow. RTL is synthesized with Cadence Genus, and the resulting design is taken into the Innovus physical-design environment for floorplanning and implementation checks.
 
-### At a glance
+### Project at a glance
 
 | Item | Details |
 |---|---|
@@ -54,7 +102,7 @@ The project also explores the ASIC implementation flow. RTL is synthesized with 
 
 ---
 
-## 2. Objectives
+## 🎯 Project Objectives
 
 1. Translate a CNN inference datapath into synthesizable RTL.
 2. Implement the required convolution, pooling, fully connected and classification operations in hardware.
@@ -67,44 +115,45 @@ The project also explores the ASIC implementation flow. RTL is synthesized with 
 
 ---
 
-## 3. System architecture
+### End-to-end design journey
+
+```mermaid
+flowchart LR
+    A["CNN model / parameters"] --> B["Verilog RTL"]
+    B --> C["Simulation"]
+    C --> D["Vivado synthesis & implementation"]
+    D --> E["Bitstream"]
+    E --> F["Zynq-7000 FPGA"]
+    F --> G["ILA / VIO validation"]
+    B --> H["Cadence Genus"]
+    H --> I["Mapped netlist"]
+    I --> J["Cadence Innovus"]
+    J --> K["Floorplan & physical checks"]
+```
+
+## 🧠 System Architecture
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 At a high level, the accelerator follows this dataflow:
 
-```text
-             28 × 28 grayscale image
-                       |
-                       v
-              Pixel loading interface
-                       |
-                       v
-               Input / image buffer
-                       |
-                       v
-                Convolution layer(s)
-                       |
-                       v
-                  Activation
-                       |
-                       v
-                 Max-pooling
-                       |
-                       v
-              Fully connected layer
-                       |
-                       v
-                 Classifier / logits
-                       |
-                       v
-                Argmax classification
-                       |
-                       v
-              Predicted digit (0–9)
+```mermaid
+flowchart TD
+    A["28 × 28 grayscale image<br/>784 pixels"] --> B["Pixel loading interface"]
+    B --> C["Input / image buffer"]
+    C --> D["Convolution layer(s)"]
+    D --> E["Activation"]
+    E --> F["Max-pooling"]
+    F --> G["Fully connected layer"]
+    G --> H["10 class logits"]
+    H --> I["Argmax"]
+    I --> J["Predicted digit: 0–9"]
 ```
 
 The RTL source is organized into functional modules. The exact layer dimensions, fixed-point formats, parameter files and module interfaces should be taken from the corresponding source files in the repository; they are intentionally not guessed in this README.
 
-### Main RTL blocks
+### RTL module map
 
 | Block | Responsibility |
 |---|---|
@@ -119,7 +168,7 @@ The module names above reflect the project RTL organization discussed during dev
 
 ---
 
-## 4. CNN inference flow
+## 🔄 CNN Inference Pipeline
 
 ### 4.1 Input loading
 
@@ -143,43 +192,31 @@ The argmax block selects the index of the largest logit. The prediction bus is f
 
 ---
 
-## 5. Hardware implementation
+## 🧩 FPGA Implementation
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 The design was developed and implemented using Verilog RTL and Vivado.
 
 The implementation flow is:
 
-```text
-RTL source files
-      |
-      v
-RTL elaboration / analysis
-      |
-      v
-RTL simulation
-      |
-      v
-Synthesis
-      |
-      v
-XDC constraints
-      |
-      v
-Implementation
-      |
-      v
-Bitstream generation
-      |
-      v
-Program Zynq-7000 PL
-      |
-      v
-Hardware Manager + ILA/VIO
+```mermaid
+flowchart TD
+    A["RTL source files"] --> B["Elaboration / RTL analysis"]
+    B --> C["RTL simulation"]
+    C --> D["Synthesis"]
+    D --> E["XDC constraints"]
+    E --> F["Implementation"]
+    F --> G["Bitstream generation"]
+    G --> H["Program Zynq-7000 PL"]
+    H --> I["Hardware Manager"]
+    I --> J["ILA / VIO debugging"]
 ```
 
 The project screenshots show a completed Vivado bitstream-generation operation and a programmed `xc7z020_1` device in Hardware Manager.
 
-### FPGA target
+### Target platform
 
 - **Device:** `xc7z020clg484-1` (Zynq-7000)
 - **Clock constraint used during development:** 100 MHz (`10 ns` period)
@@ -194,9 +231,9 @@ Use the board's official master XDC and verify every package pin against the exa
 
 ---
 
-## 6. FPGA platform and debug
+## 🧪 FPGA Platform & On-Chip Debug
 
-### 6.1 ILA signals
+### 6.1 Signals monitored by ILA
 
 The Hardware Manager captures show these internal signals:
 
@@ -210,17 +247,41 @@ The Hardware Manager captures show these internal signals:
 
 The ILA is especially useful because it exposes internal signals without requiring every datapath signal to be routed to an external FPGA pin. This keeps the top-level I/O interface manageable and avoids unnecessarily high I/O-bank utilization.
 
-### 6.2 Simulation waveform
+### 6.2 Simulation evidence
 
 The simulation waveform screenshot shows the prediction output alongside ten 32-bit logits, the image array, loop/index signals and the ground-truth label. In the captured example, `GT_LABEL` is `9` and `prediction` is `9`.
 
 This is a useful example-level functional check. It is not, by itself, a complete accuracy evaluation across a test dataset.
 
-### 6.3 Hardware Manager captures
+### 6.3 On-board debug captures
 
 The ILA screenshots document several observed prediction-bus values while the pixel index is shown near the end of the 784-pixel input sequence (`0x30E`, decimal 782). The captures are included as debug evidence. Since the screenshots are individual snapshots, they should not be treated as a complete test-vector table or as proof that each displayed prediction corresponds to a known ground-truth label.
 
+## 🖼️ Project Gallery
+
+A quick visual tour of the implementation. Open each section to inspect the full set of screenshots.
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="README_assets/vivado/vivado_01_hardware_manager.png" alt="Vivado Hardware Manager" width="100%">
+      <br><strong>FPGA Bring-up</strong><br><sub>Vivado · Zynq-7000 · ILA</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="README_assets/genus/genus_01_synthesis_design_view.png" alt="Genus synthesis design" width="100%">
+      <br><strong>Logic Synthesis</strong><br><sub>Cadence Genus</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="README_assets/innovus/innovus_05_layout_view.png" alt="Innovus layout" width="100%">
+      <br><strong>Physical Design</strong><br><sub>Cadence Innovus</sub>
+    </td>
+  </tr>
+</table>
+
 #### Vivado ILA and Hardware Manager screenshots
+
+<details>
+<summary><b>Open Vivado Hardware Manager and ILA screenshot gallery (15 images)</b></summary>
 
 **Hardware Manager / programmed device**
 
@@ -254,13 +315,22 @@ The ILA screenshots document several observed prediction-bus values while the pi
 
 ![ILA capture 14](README_assets/vivado/vivado_14_ila_capture.png)
 
+**Additional ILA capture — prediction bus = 3**
+
+![ILA capture 15](README_assets/vivado/vivado_15_ila_capture_prediction_3.png)
+
+</details>
+
 ---
 
-## 7. Cadence synthesis and physical-design exploration
+## 🏭 ASIC Synthesis & Physical Design
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 In addition to FPGA implementation, the RTL was taken through a standard-cell synthesis and physical-design exploration flow using Cadence tools.
 
-### 7.1 Genus synthesis
+### 7.1 Genus — logic synthesis
 
 Cadence Genus was used to elaborate and synthesize the CNN top-level design against the configured standard-cell library. The captured reports provide a snapshot of the synthesized design.
 
@@ -286,6 +356,9 @@ The mapped-gates and gate-count reports show the cell composition and a total of
 
 #### Genus screenshots
 
+<details>
+<summary><b>Open Cadence Genus synthesis reports (5 images)</b></summary>
+
 **Synthesized design view**
 
 ![Genus synthesized design](README_assets/genus/genus_01_synthesis_design_view.png)
@@ -306,7 +379,9 @@ The mapped-gates and gate-count reports show the cell composition and a total of
 
 ![Genus timing debug](README_assets/genus/genus_05_timing_debug_report.png)
 
-### 7.2 Timing report interpretation
+</details>
+
+### 7.2 Timing report
 
 The captured Genus Timing Debug window reports:
 
@@ -318,7 +393,7 @@ The captured Genus Timing Debug window reports:
 
 The path list shows positive slack values in the displayed entries. These results describe the report and constraints used for that run. For a formal timing claim, retain the SDC, library setup, complete timing reports and exact run configuration.
 
-### 7.3 Innovus physical-design exploration
+### 7.3 Innovus — physical-design exploration
 
 The synthesized design was opened in Cadence Innovus for physical-design work. The supplied screenshots document floorplan/layout views, I/O pin visibility and verification output.
 
@@ -358,6 +433,9 @@ The screenshots show the design in the Innovus layout environment and a verifica
 
 #### Innovus screenshots
 
+<details>
+<summary><b>Open Cadence Innovus floorplan, layout and verification gallery (5 images)</b></summary>
+
 **Initial floorplan/layout view**
 
 ![Innovus floorplan 1](README_assets/innovus/innovus_01_floorplan_view.png)
@@ -378,9 +456,27 @@ The screenshots show the design in the Innovus layout environment and a verifica
 
 ![Innovus layout view](README_assets/innovus/innovus_05_layout_view.png)
 
+</details>
+
 ---
 
-## 8. Results captured so far
+### FPGA and ASIC tool flows at a glance
+
+```mermaid
+flowchart LR
+    RTL["Verilog RTL"] --> FPGA["Vivado flow"]
+    RTL --> ASIC["Cadence flow"]
+    FPGA --> BIT["Zynq-7000 bitstream"]
+    BIT --> HW["Hardware Manager<br/>ILA / VIO"]
+    ASIC --> GEN["Genus synthesis"]
+    GEN --> INN["Innovus physical-design exploration"]
+    INN --> CHECK["DRC / connectivity / timing checks"]
+```
+
+## 📊 Results & Evidence
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 | Stage | Evidence / observation | Interpretation |
 |---|---|---|
@@ -395,6 +491,9 @@ The screenshots show the design in the Innovus layout environment and a verifica
 | Genus power | Component power values shown in the report | Estimated power under the configured library/conditions |
 | Innovus verification | 0 DRC violations in the captured run | No DRC violations reported in that run; I/O assignment warnings remain |
 
+> [!NOTE]
+> The reported Genus figures are synthesis-tool estimates under the displayed library and operating conditions. They are not FPGA resource counts or measured board power.
+
 ### Important distinction
 
 The FPGA and ASIC flows have different targets and constraints:
@@ -406,7 +505,10 @@ Area and power numbers from Genus must not be directly compared with FPGA LUT/FF
 
 ---
 
-## 9. Repository structure
+## 📁 Repository Structure
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 The following is a suggested organization. Keep the actual filenames already used by your project if they differ.
 
@@ -441,7 +543,7 @@ The `README_assets` directory in this documentation bundle contains the screensh
 
 ---
 
-## 10. Reproducing the Vivado flow
+## 🚀 Getting Started: Vivado
 
 1. Clone or download the repository.
 2. Open the Vivado project (`.xpr`) or create a project for the correct Zynq-7000 part.
@@ -469,7 +571,7 @@ Avoid hard-coded paths tied to one computer. Prefer project-relative paths or a 
 
 ---
 
-## 11. Reproducing the Cadence flow
+## 🛠️ Getting Started: Cadence
 
 The exact commands depend on the installed PDK, standard-cell library, tool versions and lab environment. A reproducible run should preserve:
 
@@ -500,7 +602,40 @@ Do not skip I/O assignment. The supplied Innovus log explicitly warns that sever
 
 ---
 
-## 12. Important implementation notes
+### Expandable implementation checklist
+
+<details>
+<summary><b>Vivado / FPGA checklist</b></summary>
+
+- [ ] Confirm the correct Zynq-7000 part and board revision.
+- [ ] Add all RTL files and set the correct top module.
+- [ ] Verify every `.mem` initialization file and its simulation path.
+- [ ] Run RTL simulation against known input images.
+- [ ] Apply the board-specific XDC constraints.
+- [ ] Run synthesis and implementation; review utilization and timing.
+- [ ] Generate the bitstream and program the PL.
+- [ ] Capture `busy_o`, `done_o`, `prediction_o`, `pixel_idx_o` and `load_o` using ILA.
+
+</details>
+
+<details>
+<summary><b>Genus / Innovus checklist</b></summary>
+
+- [ ] Preserve the RTL source list, library setup and SDC constraints.
+- [ ] Run Genus synthesis and save mapped netlist and reports.
+- [ ] Import the mapped netlist and technology setup into Innovus.
+- [ ] Assign all required I/O pins.
+- [ ] Complete floorplanning and power planning.
+- [ ] Run placement, CTS and routing as appropriate.
+- [ ] Run timing, connectivity and DRC checks.
+- [ ] Archive the final database, scripts and logs.
+
+</details>
+
+## 📝 Engineering Notes
+
+<sub>[↑ Back to top](#-fpga-based-cnn-accelerator)</sub>
+
 
 - **Clocking:** keep the RTL clock, XDC clock constraint and implementation timing assumptions consistent.
 - **Reset:** define reset polarity and synchronous/asynchronous behavior consistently across modules and testbench.
@@ -513,7 +648,7 @@ Do not skip I/O assignment. The supplied Innovus log explicitly warns that sever
 
 ---
 
-## 13. Future improvements
+## 🔭 Future Improvements
 
 1. **Quantitative accuracy evaluation:** run a complete held-out image set and report accuracy, confusion matrix and per-class metrics.
 2. **Hardware/software comparison:** compare FPGA predictions against a software reference using identical quantized parameters.
@@ -526,7 +661,7 @@ Do not skip I/O assignment. The supplied Innovus log explicitly warns that sever
 
 ---
 
-## 14. Acknowledgements
+## 🙌 Acknowledgements
 
 This project uses the FPGA and ASIC EDA environments provided by AMD/Xilinx Vivado and Cadence Genus/Innovus. The implementation is intended as an educational and engineering exploration of CNN inference acceleration using digital hardware.
 
@@ -535,3 +670,16 @@ This project uses the FPGA and ASIC EDA environments provided by AMD/Xilinx Viva
 ## Project documentation note
 
 The screenshots in `README_assets/` are included as development evidence and are embedded in this README using relative paths. Keep the `README_assets` directory alongside `README.md` when uploading the documentation to GitHub; otherwise the images will not render.
+
+
+---
+
+<div align="center">
+
+### ⭐ If this project is useful, consider starring the repository.
+
+**Built with Verilog RTL · Vivado · Zynq-7000 · Cadence Genus · Cadence Innovus**
+
+<sub>Keep `README_assets/` beside this file so all screenshots render correctly on GitHub.</sub>
+
+</div>
