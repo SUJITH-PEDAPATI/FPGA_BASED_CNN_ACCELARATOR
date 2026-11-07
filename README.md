@@ -357,7 +357,7 @@ Nothing is hidden inside collapsed panels. Scroll through the complete Vivado, G
 
 **15 · ILA capture — prediction bus = 3**
 
-![ILA capture 15 — prediction bus = 3](README_assets/vivado/vivado_15_ila_capture_prediction_3.png)
+![ILA capture 15 — prediction bus = 3](README_assets/vivado/vivado_01_hardware_manager.png)
 
 ---
 
