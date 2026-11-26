@@ -254,7 +254,7 @@ This is a useful example-level functional check. It is not, by itself, a complet
 
 ### 6.3 On-board debug captures
 
-The Integrated Logic Analyzer (ILA) captures document real-time, on-chip inference predictions across the physical Digilent ZedBoard (AMD Zynq-7000 SoC `xc7z020clg484-1`) programmable logic. Rather than testing a single static image, the hardware accelerator was independently synthesized, implemented with complete post-route timing closure ($WNS \ge 0.000\text{ ns}$), and verified across individual handwritten digit projects covering the complete digit suite (**digits 0 through 9**).
+The Integrated Logic Analyzer (ILA) captures document real-time, on-chip inference predictions across the physical Digilent ZedBoard (AMD Zynq-7000 SoC `xc7z020clg484-1`) programmable logic. Rather than testing a single static image, the hardware accelerator was independently synthesized, implemented with complete post-route timing closure (WNS ≥ 0.000 ns), and verified across individual handwritten digit projects covering the complete digit suite (**digits 0 through 9**).
 
 In each test, the input pixel controller sequentially streams all 784 8-bit grayscale pixel values (`0x00`–`0xFF`) into the hardware accelerator buffer. As the pixel stream reaches index `0x30E` (decimal 782/784), the inference pipeline finishes convolutional feature extraction, pooling, fully connected logit calculations, and argmax classification, asserting `done_o` and latching the final predicted digit onto `prediction_o[3:0]`.
 
@@ -271,7 +271,7 @@ Nothing is hidden inside collapsed panels. Scroll through the complete Vivado FP
 **01 · Vivado Behavioral Simulation Waveform — Full CNN Inference Verification for Digit 9**
 ##### Sideheading: `Simulation_waveform` · Behavioral Simulation · Testbench `tb_vivado_mnist.v`
 
-*Pre-synthesis behavioral simulation waveform captured in Vivado Simulator using testbench `tb_vivado_mnist.v` at timestamp $7,106,383,940\text{ ps}$. The execution displays the complete inference datapath: all ten 32-bit logit scores (`logit0` through `logit9`) computed by the fully connected layer, where `logit9` dominates with the highest score (`0x00000018`), driving the argmax output `prediction_o[3:0] = 9` in exact mathematical agreement with ground-truth label `GT_LABEL[3:0] = 9`. Ingestion of the full 784-element memory array `img[0:783]` is verified by loop index `j = 0x00000310` (decimal 784).*
+*Pre-synthesis behavioral simulation waveform captured in Vivado Simulator using testbench `tb_vivado_mnist.v` at timestamp 7,106,383,940 ps (7.106 µs). The execution displays the complete inference datapath: all ten 32-bit logit scores (`logit0` through `logit9`) computed by the fully connected layer, where `logit9` dominates with the highest score (`0x00000018`), driving the argmax output `prediction_o[3:0] = 9` in exact mathematical agreement with ground-truth label `GT_LABEL[3:0] = 9`. Ingestion of the full 784-element memory array `img[0:783]` is verified by loop index `j = 0x00000310` (decimal 784).*
 
 ![Vivado Behavioral Simulation Waveform](README_assets/vivado/vivado_02_ila_capture.png)
 
@@ -286,10 +286,10 @@ Nothing is hidden inside collapsed panels. Scroll through the complete Vivado FP
 
 ---
 
-**03 · Vivado Implemented Design & Timing Closure Summary — Zero Timing Violations ($WNS = +0.021\text{ ns}$)**
+**03 · Vivado Implemented Design & Timing Closure Summary — Zero Timing Violations (WNS = +0.021 ns)**
 ##### Sideheading: `Implementation_design` · Post-Route Device View & Timing Summary · Run `impl_1`
 
-*Post-route implemented design view showing placed and routed cell logic (cyan overlays clustered across clock regions X0Y0, X0Y1, X0Y2, X1Y0) and the authoritative Design Timing Summary for implementation run `impl_1`. The design achieves complete timing closure at the target 100.0 MHz PL clock ($10.000\text{ ns}$ period): Setup Slack $WNS = +0.021\text{ ns}$ ($TNS = 0.000\text{ ns}$, 0 failing endpoints out of 23,892), Hold Slack $WHS = +0.023\text{ ns}$ ($THS = 0.000\text{ ns}$, 0 failing endpoints out of 23,876), and Pulse Width Slack $WPWS = +3.750\text{ ns}$ ($TPWS = 0.000\text{ ns}$, 10,042 endpoints). All user specified timing constraints are met.*
+*Post-route implemented design view showing placed and routed cell logic (cyan overlays clustered across clock regions X0Y0, X0Y1, X0Y2, X1Y0) and the authoritative Design Timing Summary for implementation run `impl_1`. The design achieves complete timing closure at the target 100.0 MHz PL clock (10.000 ns period): Setup Slack WNS = +0.021 ns (TNS = 0.000 ns, 0 failing endpoints out of 23,892), Hold Slack WHS = +0.023 ns (THS = 0.000 ns, 0 failing endpoints out of 23,876), and Pulse Width Slack WPWS = +3.750 ns (TPWS = 0.000 ns, 10,042 endpoints). All user specified timing constraints are met.*
 
 ![Vivado Implemented Design and Timing Summary](README_assets/vivado/Implementation_design.png)
 
@@ -343,7 +343,7 @@ Nothing is hidden inside collapsed panels. Scroll through the complete Vivado FP
 **09 · Independent Project Hardware Verification (`testfor4`) — Digit 4 Inference Capture (`prediction_o = 4`)**
 ##### Sideheading: `Test_for_4` · Hardware Manager Verification · Project `cnn_accelerator_digit4.xpr`
 
-*Hardware verification of the standalone `testfor4` project (`cnn_accelerator_digit4.xpr`). The on-chip logic analyzer records the transition to prediction `4` at trigger marker `T` upon complete ingestion of the digit 4 pixel stream, demonstrating 100% timing closure ($WNS = +0.005\text{ ns}$).*
+*Hardware verification of the standalone `testfor4` project (`cnn_accelerator_digit4.xpr`). The on-chip logic analyzer records the transition to prediction `4` at trigger marker `T` upon complete ingestion of the digit 4 pixel stream, demonstrating 100% timing closure (WNS = +0.005 ns).*
 
 ![Independent Project Hardware Verification for Digit 4](README_assets/vivado/Test_for_4.png)
 
@@ -352,7 +352,7 @@ Nothing is hidden inside collapsed panels. Scroll through the complete Vivado FP
 **10 · Independent Project Hardware Verification (`testfor5`) — Digit 5 Inference Capture (`prediction_o = 5`)**
 ##### Sideheading: `Test_for_5` · Hardware Manager Verification · Project `cnn_accelerator_digit5.xpr`
 
-*Hardware verification of standalone `testfor5` project (`cnn_accelerator_digit5.xpr`). Live ILA capture documents output bus transition to classified digit `5` at trigger point `T` (cursor at sample 805) with all user-specified timing constraints met ($WNS = +0.013\text{ ns}$).*
+*Hardware verification of standalone `testfor5` project (`cnn_accelerator_digit5.xpr`). Live ILA capture documents output bus transition to classified digit `5` at trigger point `T` (cursor at sample 805) with all user-specified timing constraints met (WNS = +0.013 ns).*
 
 ![Independent Project Hardware Verification for Digit 5](README_assets/vivado/Test_for_5.png)
 
@@ -418,9 +418,9 @@ Cadence Genus was used to elaborate and synthesize the CNN top-level design agai
 | Internal power | 199,003.523 nW |
 | Net power | 38,773.215 nW |
 | Switching power | 237,776.738 nW |
-| Total estimated power | $\approx$ 475.631 µW |
+| Total estimated power | ≈ 475.631 µW |
 
-The report labels the cell area as 1335.168 library area units. The power values are tool-estimated figures under `PVT_1P1V_0C` operating conditions and toggle-activity assumptions ($1.1\text{ V}$ fast process corner).
+The report labels the cell area as 1335.168 library area units. The power values are tool-estimated figures under `PVT_1P1V_0C` operating conditions and toggle-activity assumptions (1.1 V fast process corner).
 
 #### Cadence Genus Synthesis Reports & Schematics
 
@@ -436,7 +436,7 @@ The report labels the cell area as 1335.168 library area units. The power values
 **16 · Cadence Genus Power Details Report — Dynamic & Static Power Dissipation Snapshot**
 ##### Sideheading: `genus_02_power_report` · Power Analysis · PVT_1P1V_0C · fast_vdd1v0
 
-*Power analysis dialog generated by Genus 21.1 under `PVT_1P1V_0C` operating conditions using technology library `fast_vdd1v0 1.0` (wireload mode: enclosed). The report details four distinct power components for instance `cnn_top` (573 cells): Leakage Power = $77.331\text{ nW}$, Internal Power = $199,003.523\text{ nW}$, Net Power = $38,773.215\text{ nW}$, and Switching Power = $237,776.738\text{ nW}$, totaling $\approx 475.631\text{ \mu W}$.*
+*Power analysis dialog generated by Genus 21.1 under `PVT_1P1V_0C` operating conditions using technology library `fast_vdd1v0 1.0` (wireload mode: enclosed). The report details four distinct power components for instance `cnn_top` (573 cells): Leakage Power = 77.331 nW, Internal Power = 199,003.523 nW, Net Power = 38,773.215 nW, and Switching Power = 237,776.738 nW, totaling ≈ 475.631 µW.*
 
 ![Genus power report](README_assets/genus/genus_02_power_report.png)
 
@@ -463,7 +463,7 @@ The report labels the cell area as 1335.168 library area units. The power values
 **19 · Cadence Genus Timing Debug Report & Slack Histogram**
 ##### Sideheading: `genus_05_timing_debug_report` · Static Timing Analysis · WNS = 0.0000 ns
 
-*Timing debug report and path histogram generated from report file `top.mtarpt` in Genus 21.1. Across all 123 constrained paths, 123 paths pass with 0 failing paths ($WNS = 0.0000$, $TNS = 0.0000$). The path list highlights leading register-to-register paths with positive slack margins ranging between $+1.633\text{ ns}$ and $+1.663\text{ ns}$.*
+*Timing debug report and path histogram generated from report file `top.mtarpt` in Genus 21.1. Across all 123 constrained paths, 123 paths pass with 0 failing paths (WNS = 0.0000 ns, TNS = 0.0000 ns). The path list highlights leading register-to-register paths with positive slack margins ranging between +1.633 ns and +1.663 ns.*
 
 ![Genus timing debug report](README_assets/genus/genus_05_timing_debug_report.png)
 
@@ -620,13 +620,13 @@ flowchart LR
 |---|---|---|
 | RTL Behavioral Simulation | `tb_vivado_mnist.v` waveform displays 10 logit outputs (`logit0`–`logit9`), `GT_LABEL = 9`, and `prediction = 9` | Bit-exact functional agreement between Verilog datapath and trained fixed-point CNN model |
 | Vivado Synthesis | Netlist device view (`synth_1 | xc7z020clg484-1`) partitioned across clock regions `X0Y0` to `X1Y2` | RTL logic, control FSM, and memory initialization files successfully synthesized and mapped |
-| Vivado Implementation | Post-route layout with zero timing violations: $WNS = +0.021\text{ ns}$, $TNS = 0.000\text{ ns}$, $WHS = +0.023\text{ ns}$ | Full 100 MHz timing closure achieved on 23,892 endpoints with zero timing violations |
+| Vivado Implementation | Post-route layout with zero timing violations: WNS = +0.021 ns, TNS = 0.000 ns, WHS = +0.023 ns | Full 100 MHz timing closure achieved on 23,892 endpoints with zero timing violations |
 | Bitstream Generation | Vivado reports `write_bitstream Complete` | Verified production bitstreams generated for all independent digit projects |
 | FPGA Programming | Hardware Manager shows target `xc7z020_1` on ZedBoard as `Programmed` | Bitstreams successfully loaded onto physical PL fabric |
 | On-Chip ILA Verification | Live ILA waveforms capturing output bus transitions for digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 | Complete on-hardware verification across handwritten digits with real-time internal signal visibility |
 | Cadence Genus Synthesis | 573 standard-cell leaf instances; total cell area 1335.168 library units | Gate-level mapping completed using `fast_vdd1v0` library |
-| Cadence Genus Timing | 123 passing paths, 0 failing paths ($WNS = 0.0000$, $TNS = 0.0000$) | Zero slack violations with positive timing margin across all registers |
-| Cadence Genus Power | $77.33\text{ nW}$ leakage, $199.00\text{ \mu W}$ internal, $237.78\text{ \mu W}$ switching ($\approx 475.63\text{ \mu W}$ total) | Tool-estimated power dissipation under `PVT_1P1V_0C` conditions |
+| Cadence Genus Timing | 123 passing paths, 0 failing paths (WNS = 0.0000 ns, TNS = 0.0000 ns) | Zero slack violations with positive timing margin across all registers |
+| Cadence Genus Power | 77.33 nW leakage, 199.00 µW internal, 237.78 µW switching (≈ 475.63 µW total) | Tool-estimated power dissipation under `PVT_1P1V_0C` conditions |
 | Cadence Innovus Floorplan & PDN | Dedicated core/die definition with dual VDD/VSS rings, stripes, and followpin rails | Robust power distribution network established to prevent IR drop |
 | Cadence Innovus Placement & CTS | Legalized standard-cell placement rows and balanced clock distribution tree | Clean cell placement and low-skew clock tree routing to all sequential sinks |
 | Cadence Innovus Routing | NanoRoute multi-layer metal interconnects (M1–top metal) | Detailed signal routing successfully completed |
