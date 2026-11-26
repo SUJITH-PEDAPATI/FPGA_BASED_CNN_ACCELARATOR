@@ -1,0 +1,45 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[22:40:45.411529] Configured Lic search path (21.01-s002): 5280@172.16.16.28
+
+Version: 21.14-s082_1, built Thu Jun 23 02:02:08 PDT 2022
+Options: -legacy_ui -batch -execute {get_attribute * / -quiet; apropos array; apropos mux; apropos memory; exit} 
+Date:    Thu Nov 26 22:40:45 2026
+Host:    cad1 (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (6cores*12cpus*1physical cpu*Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz 12288KB) (15976324KB)
+PID:     13447
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+
+[22:40:45.519866] Periodic Lic check successful
+[22:40:45.519872] Feature usage summary:
+[22:40:45.519873] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (6 seconds elapsed).
+
+#@ Processing -execute option
+@genus 1> get_attribute * / -quiet; apropos array; apropos mux; apropos memory; exit
+Error   : A command argument did not match any of the acceptable command options. [TUI-64] [get_attribute]
+        : The argument in question is '-quiet'.
+        : Check the command usage and correct the input to the command.
+
+Usage: get_attribute <string>
+           [<root|object_type|attribute|message_group|message|base_cell|base_pin|pg_base_pin|library|libcell|seq_function|libpin|pg_lib_pin|libarc|wireload|wireload_selection|operating_condition|base_cell_set|library_set|opcond|rc_corner|timing_condition|virtual_techelt|library_domain|level_shifter_group|design|subdesign|instance|net|fnet|pg_net|pg_hnet|pg_port|pg_hport|port|subport|pin|pgpin|pin_bus|constant|port_bus|subport_bus|mode|analysis_view|constraint_mode|delay_corner|clock|external_delay|cost_group|exception|via|site|layer|blockage|place_blockage|route_blockage|gcell|gcell_grid|extraction_grid|group|pcell|bump|region|row|track_pattern|slot|fill|style|specialnet|pnet|def_pin|cluster|pinstance|fpobject|blackbox|route_rule|pdomain|routetype|congestion_box|power_scope|power_model|power_intent_command|power_intent_command_id|nominal_condition|power_domain|power_mode|state_retention_rule|repeater_rule|macro_model|macro_power_domain|macro_isolation_rule|isolation_rule|level_shifter_rule|command|command_option|flow|flow_step|sdp_group|sdp_row|sdp_column|sdp_instance|timing_path|timing_point|arc|ctp_source|ctp_enable|ctp_timed_object|timing_bin|timing_bin_path|violation|actual_scan_chain|actual_scan_segment|scan_chain|scan_segment|test_clock_domain|test_clock|fuse_cell_domain|fuse_cell|memory_library_domain|memory_libcell|memory_libpin_alias|memory_libpin_test|memory_libpin_action|memory_libpin_access|write_mask_bit|memory_bank_structure|memory_data_bit_structure|memory_spare_row|memory_spare_row_map_address|memory_spare_column|memory_spare_column_map_address|memory_spare_column_map_data|programmable_direct_access_function|pmbist_port|mbist_clock_domain|mbist_clock|formal_verification_constraint|test_signal|jtag_port|tap_port|boundary_scan_segment|jtag_macro|jtag_instruction_register|jtag_instruction|dft_configuration_mode|osc_source|opcg_trigger|domain_macro_parameter|opcg_domain|opcg_mode|osc_source_reference|test_bus_port|test_bus_interface|cell|modules|hdl_lib|hdl_config|hdl_arch|hdl_pack|hdl_oper|hdl_comp|hdl_block|hdl_proc|hdl_inst|hdl_label|hdl_subp|hdl_pin|hdl_param|hdl_bind|hdl_impl>+]
+
+    <string>:
+        attribute name 
+    [<root|object_type|attribute|message_group|message|base_cell|base_pin|pg_base_pin|library|libcell|seq_function|libpin|pg_lib_pin|libarc|wireload|wireload_selection|operating_condition|base_cell_set|library_set|opcond|rc_corner|timing_condition|virtual_techelt|library_domain|level_shifter_group|design|subdesign|instance|net|fnet|pg_net|pg_hnet|pg_port|pg_hport|port|subport|pin|pgpin|pin_bus|constant|port_bus|subport_bus|mode|analysis_view|constraint_mode|delay_corner|clock|external_delay|cost_group|exception|via|site|layer|blockage|place_blockage|route_blockage|gcell|gcell_grid|extraction_grid|group|pcell|bump|region|row|track_pattern|slot|fill|style|specialnet|pnet|def_pin|cluster|pinstance|fpobject|blackbox|route_rule|pdomain|routetype|congestion_box|power_scope|power_model|power_intent_command|power_intent_command_id|nominal_condition|power_domain|power_mode|state_retention_rule|repeater_rule|macro_model|macro_power_domain|macro_isolation_rule|isolation_rule|level_shifter_rule|command|command_option|flow|flow_step|sdp_group|sdp_row|sdp_column|sdp_instance|timing_path|timing_point|arc|ctp_source|ctp_enable|ctp_timed_object|timing_bin|timing_bin_path|violation|actual_scan_chain|actual_scan_segment|scan_chain|scan_segment|test_clock_domain|test_clock|fuse_cell_domain|fuse_cell|memory_library_domain|memory_libcell|memory_libpin_alias|memory_libpin_test|memory_libpin_action|memory_libpin_access|write_mask_bit|memory_bank_structure|memory_data_bit_structure|memory_spare_row|memory_spare_row_map_address|memory_spare_column|memory_spare_column_map_address|memory_spare_column_map_data|programmable_direct_access_function|pmbist_port|mbist_clock_domain|mbist_clock|formal_verification_constraint|test_signal|jtag_port|tap_port|boundary_scan_segment|jtag_macro|jtag_instruction_register|jtag_instruction|dft_configuration_mode|osc_source|opcg_trigger|domain_macro_parameter|opcg_domain|opcg_mode|osc_source_reference|test_bus_port|test_bus_interface|cell|modules|hdl_lib|hdl_config|hdl_arch|hdl_pack|hdl_oper|hdl_comp|hdl_block|hdl_proc|hdl_inst|hdl_label|hdl_subp|hdl_pin|hdl_param|hdl_bind|hdl_impl>+]:
+        object of interest (must be unique) 
+1
+Encountered problems processing command: get_attribute * / -quiet; apropos array; apropos mux; apropos memory; exit
+WARNING: This version of the tool is 1617 days old.

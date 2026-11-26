@@ -1,0 +1,98 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[23:55:57.411609] Configured Lic search path (21.01-s002): 5280@172.16.16.28
+
+Version: 21.14-s082_1, built Thu Jun 23 02:02:08 PDT 2022
+Options: -no_gui -execute {help *sv*; help gui*; exit} 
+Date:    Thu Nov 26 23:55:57 2026
+Host:    cad1 (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (6cores*12cpus*1physical cpu*Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz 12288KB) (15976324KB)
+PID:     111088
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+
+[23:55:57.053698] Periodic Lic check successful
+[23:55:57.053712] Feature usage summary:
+[23:55:57.053713] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (6 seconds elapsed).
+
+#@ Processing -execute option
+@genus 1> help *sv*; help gui*; exit
+
+============================================================
+Commands:
+  write_sv_wrapper:     # writes out a wrapper SystemVerilog module for a design. Such a wrapper module helps in doing comparative simulation of output netlist versus input RTL design, especially when the design description in input RTL has complex ports.
+
+
+============================================================
+Attributes:
+  update_sv_wrapper_post_elab(root):
+                        # bool { 1 0 true false }, read/write, default=false, indices={}
+                        # Updates the 'sv_wrapper' string attribute with new port names which are modified after elaboration stage.
+  write_sv_port_wrapper(root):
+                        # bool { 1 0 true false }, read/write, default=false, indices={}
+                        # Writes out System Verilog port Wrapper.
+  hdl_sv_module_wrapper(root):
+                        # bool { 1 0 true false }, read/write, default=false, indices={}
+                        # Enables generation of System Verilog module wrapper.
+  gui_sv_update(root):  # string, read/write, default=auto, indices={}
+                        # Set the schematic viewer update mode.
+  gui_sv_threshold(root):
+                        # int, read/write, default=2000, indices={}
+                        # Instance count threshold above which schematic will go into manual update mode.
+  pqos_ignore_msv(root):
+                        # bool { 1 0 true false }, read/write, default=false, indices={}
+                        # Do not pass library or power domain information to Innovus.
+
+============================================================
+Commands:
+  gui_hide:             # hide all windows
+  gui_raise:            # raise main window
+  gui_reset:            # reset GUI busy indicators
+  gui_show:             # show all windows
+  gui_update:           # force synchronization of primary viewers with current design database
+
+
+============================================================
+Attributes:
+  gui_enabled(root):    # bool { 1 0 true false }, read-only, default=false, indices={}
+                        # Returns true if GUI mode is enabled.
+  gui_visible(root):    # bool { 1 0 true false }, read-only, default=false, indices={}
+                        # Returns true if GUI is visible.
+  gui_auto_update(root):
+                        # bool { 1 0 true false }, read/write, default=true, indices={}
+                        # Enables automatic GUI updates.
+  gui_sv_update(root):  # string, read/write, default=auto, indices={}
+                        # Set the schematic viewer update mode.
+  gui_sv_threshold(root):
+                        # int, read/write, default=2000, indices={}
+                        # Instance count threshold above which schematic will go into manual update mode.
+  gui_hv_threshold(root):
+                        # int, read/write, default=50, indices={}
+                        # Set the hierarchy viewer maximum level one branch count.
+  gui_hv_phys_threshold(root):
+                        # int, read/write, default=10, indices={}
+                        # Set the hierarchy viewer physical instance highlight hierarchy instance count.
+  gui_show_old_legend(root):
+                        # bool { 1 0 true false }, read/write, default=false, indices={}
+                        # Show the old legend dialog.
+  gui_pv_highlight_hier_instances_show_legend(root):
+                        # bool { 1 0 true false }, read/write, default=true, indices={}
+                        # Controls the legend dialog from 'gui_highlight_hier_instances_pv'.
+
+Lic Summary:
+[23:56:04.320963] Cdslmd servers:5280@172.16.16.28
+[23:56:04.320978] Feature usage summary:
+[23:56:04.320979] Genus_Synthesis
+

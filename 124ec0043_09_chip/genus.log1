@@ -1,0 +1,67 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[23:55:36.411585] Configured Lic search path (21.01-s002): 5280@172.16.16.28
+
+Version: 21.14-s082_1, built Thu Jun 23 02:02:08 PDT 2022
+Options: -no_gui -execute {apropos gui_ ; apropos schematic ; exit} 
+Date:    Thu Nov 26 23:55:36 2026
+Host:    cad1 (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (6cores*12cpus*1physical cpu*Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz 12288KB) (15976324KB)
+PID:     108547
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+
+[23:55:36.473467] Periodic Lic check successful
+[23:55:36.473496] Feature usage summary:
+[23:55:36.473497] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (6 seconds elapsed).
+
+#@ Processing -execute option
+@genus 1> apropos gui_ ; apropos schematic ; exit
+Commands matching search string:
+  gui_hide
+  gui_raise
+  gui_reset
+  gui_show
+  gui_update
+
+Commands with option text matching search string:
+  gui_hide
+  gui_raise
+  gui_reset
+  gui_show
+  gui_update
+
+Attributes matching search string:
+  gui_auto_update (root)
+  gui_enabled (root)
+  gui_hv_phys_threshold (root)
+  gui_hv_threshold (root)
+  gui_pv_highlight_hier_instances_show_legend (root)
+  gui_show_old_legend (root)
+  gui_sv_threshold (root)
+  gui_sv_update (root)
+  gui_visible (root)
+
+Attributes with help text matching search string:
+  gui_pv_highlight_hier_instances_show_legend (root)
+Attributes with help text matching search string:
+  gui_sv_threshold (root)
+  gui_sv_update (root)
+
+Lic Summary:
+[23:55:43.460521] Cdslmd servers:5280@172.16.16.28
+[23:55:43.460537] Feature usage summary:
+[23:55:43.460538] Genus_Synthesis
+
