@@ -36,7 +36,6 @@
 > **Current status:** RTL simulation and Vivado bitstream generation are complete. The Zynq-7000 device was programmed and inspected through Hardware Manager using ILA/VIO. Genus synthesis reports and Innovus floorplan/verification snapshots are also documented. The available Innovus log still shows unassigned I/O warnings; this README does not claim completed ASIC sign-off.
 
 <div align="center">
-  <img src="README_assets/vivado/Test_for_3.png" alt="Vivado Hardware Manager showing the programmed Zynq-7000 device and ILA signals" width="96%">
   <br>
   <sub><em>FPGA bring-up: programmed device, Hardware Manager and internal-signal visibility.</em></sub>
 </div>
