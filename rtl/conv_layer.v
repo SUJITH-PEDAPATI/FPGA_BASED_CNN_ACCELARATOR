@@ -58,12 +58,12 @@ module conv_layer #(
                      S_DONE  = 3'd4;
     reg [2:0] state;
 
-    reg [$clog2(OUT_CH+1)-1:0] r_oc;
-    reg [$clog2(OUT_H+1)-1:0]  r_oy;
-    reg [$clog2(OUT_W+1)-1:0]  r_ox;
-    reg [$clog2(IN_CH+1)-1:0]  r_ic;
-    reg [1:0]                   r_ky;
-    reg [1:0]                   r_kx;
+    reg [$clog2(OUT_CH+1)-1:0] r_oc; // Current Output channel
+    reg [$clog2(OUT_H+1)-1:0]  r_oy; // Current Output row
+    reg [$clog2(OUT_W+1)-1:0]  r_ox; // Current Output column
+    reg [$clog2(IN_CH+1)-1:0]  r_ic; // Current Input Channel
+    reg [1:0]                   r_ky; // Current Kernel Row
+    reg [1:0]                   r_kx; // Current Kernel Column
     reg signed [31:0]           acc;
 
     // Single-port pipelined weight read
