@@ -73,7 +73,7 @@ module conv_layer #(
     reg signed [7:0]            r_wdata; // Current filter weight
 
     // Input sign/zero extension
-    wire signed [8:0]  in_ext;
+    wire signed [8:0]  in_ext; // Current Image Activation
     assign in_ext = FIRST_LAYER ? {1'b0, in_rd_data} : {in_rd_data[7], in_rd_data};
 
     // Pipelined MAC multiplier stage to break 14.7 ns critical path
