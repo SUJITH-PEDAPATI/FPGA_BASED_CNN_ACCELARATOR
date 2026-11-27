@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ FPGA-Based CNN Accelerator
+# FPGA-Based CNN Accelerator
 
 ### Handwritten Digit Recognition | Verilog RTL | Zynq-7000 | ASIC Design Exploration
 
