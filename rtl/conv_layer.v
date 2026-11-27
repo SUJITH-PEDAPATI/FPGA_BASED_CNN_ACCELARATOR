@@ -67,10 +67,10 @@ module conv_layer #(
     reg signed [31:0]           acc;
 
     // Single-port pipelined weight read
-    reg [$clog2(W_COUNT+1)-1:0] r_widx;
-    reg [$clog2(W_COUNT+1)-1:0] r_oc_base;
-    reg [$clog2(W_COUNT+1)-1:0] widx_next;
-    reg signed [7:0]            r_wdata;
+    reg [$clog2(W_COUNT+1)-1:0] r_widx; // CUrrent Weight Memory Index
+    reg [$clog2(W_COUNT+1)-1:0] r_oc_base; // Base weight address for the output channel
+    reg [$clog2(W_COUNT+1)-1:0] widx_next; // Next weight index
+    reg signed [7:0]            r_wdata; // Current filter weight
 
     // Input sign/zero extension
     wire signed [8:0]  in_ext;
@@ -90,7 +90,7 @@ module conv_layer #(
         end
     end
 
-    wire last_tap;
+    wire last_tap; // Last channel element in the last column of the last row
     assign last_tap = (r_ic == IN_CH-1) && (r_ky == 2'd2) && (r_kx == 2'd2);
 
     // Single-port weight address multiplexer
